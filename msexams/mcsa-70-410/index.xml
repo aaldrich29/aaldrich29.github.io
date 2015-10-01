@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mcsa 70 410 on Andrew Aldrich</title>
-    <link>http://aaldrich29.github.io/msexams/mcsa-70-410/</link>
+    <link>http://andrewaldrich.com/msexams/mcsa-70-410/</link>
     <description>Recent content in Mcsa 70 410 on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 01 Oct 2015 10:08:12 -0500</lastBuildDate>
-    <atom:link href="http://aaldrich29.github.io/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://andrewaldrich.com/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MCSA 70-410 Lab #0 - Intro</title>
-      <link>http://aaldrich29.github.io/msexams/mcsa-70-410/lab-0/</link>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</link>
       <pubDate>Thu, 01 Oct 2015 10:08:12 -0500</pubDate>
       
-      <guid>http://aaldrich29.github.io/msexams/mcsa-70-410/lab-0/</guid>
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</guid>
       <description>&lt;p&gt;Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. &lt;em&gt;However&lt;/em&gt;, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.&lt;/p&gt;
 
 &lt;p&gt;It turns out, just reading books and watching videos didn&amp;rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.&lt;/p&gt;
@@ -31,7 +31,7 @@
 
 &lt;p&gt;I&amp;rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&amp;rsquo;s the only way they&amp;rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &amp;ldquo;Get-VM&amp;rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&amp;rsquo;ll probably learn something very interesting.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://aaldrich29.github.io/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
