@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Msexams on Andrew Aldrich</title>
-    <link>http://localhost:1313/msexams/</link>
+    <link>http://andrewaldrich.com/msexams/</link>
     <description>Recent content in Msexams on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 01 Oct 2015 10:08:12 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/msexams/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://andrewaldrich.com/msexams/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MCSA 70-410 Lab #0 - Intro</title>
-      <link>http://localhost:1313/msexams/mcsa-70-410/lab-0/</link>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</link>
       <pubDate>Thu, 01 Oct 2015 10:08:12 -0500</pubDate>
       
-      <guid>http://localhost:1313/msexams/mcsa-70-410/lab-0/</guid>
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</guid>
       <description>&lt;p&gt;Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. &lt;em&gt;However&lt;/em&gt;, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.&lt;/p&gt;
 
 &lt;p&gt;It turns out, just reading books and watching videos didn&amp;rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.&lt;/p&gt;
@@ -32,7 +32,251 @@
 
 &lt;p&gt;I&amp;rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&amp;rsquo;s the only way they&amp;rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &amp;ldquo;Get-VM&amp;rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&amp;rsquo;ll probably learn something very interesting.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MCSA 70-410 Lab #1 - Setting up the Lab</title>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/</link>
+      <pubDate>Thu, 01 Oct 2015 10:00:12 -0500</pubDate>
+      
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-technology:8bd1bf82bb668bb452ca3d0d6b4e19bc&#34;&gt;The Technology&lt;/h2&gt;
+
+&lt;p&gt;Since we&amp;rsquo;re going to want to run a bunch of servers at once, we need to go ahead and streamline the process. The general process is as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create new VM&lt;/li&gt;
+&lt;li&gt;Install Server 2012 R2&lt;/li&gt;
+&lt;li&gt;Sysprep and shut down&lt;/li&gt;
+&lt;li&gt;Detach VHD, mark read only, use as parent disk&lt;/li&gt;
+&lt;li&gt;Create new child disks for infinite servers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s right, we&amp;rsquo;re going to use [differencing disks]&lt;a href=&#34;https://technet.microsoft.com/en-us/library/cc720381.aspx)&#34;&gt;https://technet.microsoft.com/en-us/library/cc720381.aspx)&lt;/a&gt;. Differencing disks let you take a VHD to a certain state and then create child VHDs. It looks just like a normal disk to the guest OS, but changes are only written to the child disk. Let&amp;rsquo;s break down some numbers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fresh install of Server 2012 R2 Core: 7 GB&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;10 VMs @ 7 GB each: 70 GB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Parent differencing disk: 7GB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Child differencing disk: 0GB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;10 VMs @ 0 GB each: 7 GB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;100 VMs @ 0 GBs each: 7 GB&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1000 VMs @ 0 GBs each: 7 GB&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You only have to store the changes. I don&amp;rsquo;t know if this is normally recommended in a production environment, but it is invaluable for running a lab. And here&amp;rsquo;s the other great side effect: each new installation of Windows only takes as long as creating the VM! Saves time and space!&lt;/p&gt;
+
+&lt;h2 id=&#34;file-structure:8bd1bf82bb668bb452ca3d0d6b4e19bc&#34;&gt;File structure&lt;/h2&gt;
+
+&lt;p&gt;This is how I have mine setup. Setup yours however you want.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;E:.
+└───Lab
+    ├───iso
+    │       2012R2.ISO
+    │       Windows10Pro64.iso
+    │       Windows7Pro64SP1.iso
+    │
+    ├───scripts
+    │		[Scripts I Saved]
+    │       1_NewDomain.ps1
+    │       Create-Lab.ps1
+    │       New-ChildVM.ps1
+    │       New-ParentVM.ps1
+    │
+    └───VM
+            [hard drives].vhdx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;create-your-first-vm:8bd1bf82bb668bb452ca3d0d6b4e19bc&#34;&gt;Create Your First VM&lt;/h2&gt;
+
+&lt;p&gt;Remember how I said you need to know PowerShell? You shouldn&amp;rsquo;t need to touch the GUI for &lt;em&gt;anything&lt;/em&gt;, except to check yourself. If you need to find a command, check &lt;a href=&#34;https://technet.microsoft.com/en-us/library/hh848559.aspx&#34;&gt;Microsoft&amp;rsquo;s list of Hyper-V Commands&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Open up an administrative powershell.&lt;/p&gt;
+
+&lt;p&gt;Create your first VM with a disk:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VM&lt;/span&gt; -name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Parent&amp;quot;&lt;/span&gt; -NewVHDPath &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -NewVHDSizeBytes 40GB -Generation 2
+
+Name   State CPUUsage(%) MemoryAssigned(M) Uptime   Status             Version
+----   ----- ----------- ----------------- ------   ------             -------
+Parent Off   0           0                 00&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;00&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;00 Operating normally 6.2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Great! You have a vm. Now let&amp;rsquo;s save the VM object itself (not the name) as a variable. This just makes life easier.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; = &lt;span style=&#34;color: #008000&#34;&gt;Get-VM&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Parent&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now you can do cool things like:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VM&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Anyways, now we need to add the ISO file.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMDvdDrive&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\iso\2012R2.ISO&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And let&amp;rsquo;s go ahead and set it as the default boot device.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$dvd&lt;/span&gt;= &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMDvdDrive&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$dvd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s crank her up!&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Start-VM&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt;.state
+Running
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Great! It&amp;rsquo;s running!&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-02%2008_18_02-Hyper-V%20Manager.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So I may have mislead you earlier. Go ahead and open Hyper-V, and double click on your &amp;ldquo;Parent&amp;rdquo; machine. It may say &amp;ldquo;No operating system was loaded. Press a key to retry the boot sequence&amp;hellip;&amp;rdquo; Sorry. Press a key, and then when it says &amp;ldquo;Press any key to boot from CD&amp;rdquo;, do that.&lt;/p&gt;
+
+&lt;p&gt;Now that it&amp;rsquo;s up and running, let&amp;rsquo;s go ahead and set the default boot device back to the VHD. You don&amp;rsquo;t have to, but we&amp;rsquo;re all about learning today.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt; = &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$hd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-the-golden-vhd:8bd1bf82bb668bb452ca3d0d6b4e19bc&#34;&gt;Creating the Golden VHD&lt;/h2&gt;
+
+&lt;p&gt;Go ahead and walk through the Server 2012 R2 &lt;strong&gt;Core&lt;/strong&gt; install like normal. Might as well do Datacenter. Once it boots up and asks you to sign in, go ahead and do that.&lt;/p&gt;
+
+&lt;p&gt;Once again, &lt;strong&gt;Core&lt;/strong&gt;. We really want to use the Core install for our Parent disk. You can add the GUI features later.&lt;/p&gt;
+
+&lt;p&gt;At this point, don&amp;rsquo;t worry about setting up anything specific, like the name, timezone, etc. We&amp;rsquo;re going to sysprep it soon.&lt;/p&gt;
+
+&lt;p&gt;You may or may not want to install updates (I didn&amp;rsquo;t my first time around, but I&amp;rsquo;m doing it now). You&amp;rsquo;ve probably noticed by now, though, that we have no network connection.&lt;/p&gt;
+
+&lt;p&gt;$vm | Get-VMNetworkAdapter&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Name            IsManagementOs VMName SwitchName MacAddress   Status              IPAddresses
+----            -------------- ------ ---------- ----------   ------              -----------
+Network Adapter False          Parent            00155D020A00 {LostCommunication} {}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s because we haven&amp;rsquo;t created a virtual switch yet!&lt;/p&gt;
+
+&lt;p&gt;First, let&amp;rsquo;s find which network adapter we want to use. I only have the one:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-NetAdapter&lt;/span&gt;
+
+Name                      InterfaceDescription                    ifIndex Status       MacAddress            LinkSpeed ----                      --------------------                    ------- ------       ----------            --------- Ethernet                  Intel(R) Ethernet Connection I217-V           5 Up           D0-50-99-01-B0-23        1 Gbps
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to create a new switch named &amp;ldquo;Wired&amp;rdquo;, attach it to the network interface named &amp;ldquo;Ethernet&amp;rdquo;, and allow the management OS to share the network adapter (otherwise we would need seperate adapters for Hyper-V and the base OS).&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VMSwitch&lt;/span&gt; -Name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt; -NetAdapterName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Ethernet&amp;quot;&lt;/span&gt; -AllowManagementOS &lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Warning: this switched you to a new network adapter, so you will need to reset any cutom IP setting you have made.&lt;/p&gt;
+
+&lt;p&gt;Now we can connect our VM to the new switch.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; -SwitchName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You should now be able to ping the outside world from your VM. If you want to run Windows updates, now is the best time to do it.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;sconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Choose option 6&lt;/li&gt;
+&lt;li&gt;Press &amp;ldquo;A&amp;rdquo; for all updates or &amp;ldquo;R&amp;rdquo; for Recommended updates (I chose &amp;ldquo;R&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Wait&lt;/li&gt;
+&lt;li&gt;Press &amp;ldquo;A&amp;rdquo; for all updates&lt;/li&gt;
+&lt;li&gt;Wait more&lt;/li&gt;
+&lt;li&gt;Restart when Prompted&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-02%2008_16_36-Start.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;becoming-a-parent:8bd1bf82bb668bb452ca3d0d6b4e19bc&#34;&gt;Becoming a Parent&lt;/h2&gt;
+
+&lt;p&gt;Go ahead and log back in to your VM. We are going to Sysprep the machine, which resets the GUID and gets it ready to be &amp;ldquo;Unboxed&amp;rdquo; again. You would do this before you, for instance, sold a machine.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cd C&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Windows\System32\Sysprep
+sysprep.exe
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Make the setting match the image below and hit &amp;ldquo;OK&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-02%2009_05_54-Start.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you go look at your Parent.vhdx, it should be somewhere in the neighborhood of 8GB. Let&amp;rsquo;s see if we can compact it.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Mount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -ReadOnly
+Optimize-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -Mode full
+Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;I saved myself 400MB. Yay.&lt;/p&gt;
+
+&lt;p&gt;Now we&amp;rsquo;re ready to truly make this a parent disk. First of all, we don&amp;rsquo;t need that virtual machine anymore. Go ahead and get rid of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Remove-VM&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We don&amp;rsquo;t want to Parent.vhdx disk to ever change because that will invalidate all of the child disks. Let&amp;rsquo;s mark it as Read Only.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-ItemProperty&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -Name IsReadOnly -Value &lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you go to the file&amp;rsquo;s properties, you&amp;rsquo;ll see that it&amp;rsquo;s marked as Read Only.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ta-Da!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re all done for today. In the next post, we&amp;rsquo;ll make a simple script to bring up new VMs in a single command and start setting up a domain!&lt;/p&gt;
 </description>
     </item>
     

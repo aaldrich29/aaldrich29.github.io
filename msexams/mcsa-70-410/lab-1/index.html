@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Andrew Aldrich &middot; Andrew Aldrich </title>
+  <title> MCSA 70-410 Lab #1 - Setting up the Lab &middot; Andrew Aldrich </title>
 
   
   <link rel="stylesheet" href="http://andrewaldrich.com/css/poole.css">
@@ -21,12 +21,11 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://andrewaldrich.com/index.xml" rel="alternate" type="application/rss+xml" title="Andrew Aldrich" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Andrew Aldrich" />
 </head>
 
-<body class="">
-
-<div class="sidebar">
+	<body class="">
+		<div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="http://andrewaldrich.com/"><h1>Andrew Aldrich</h1></a>
@@ -47,50 +46,11 @@
 </div>
 
 
-    <div class="content container">
-<div class="posts">
-
-      
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/">
-        MCSA 70-410 Lab #0 - Intro
-      </a>
-    </h1>
-
-    <span class="post-date">Thu, Oct 1, 2015</span>
-
-    <p>Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. <em>However</em>, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.</p>
-
-<p>It turns out, just reading books and watching videos didn&rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.</p>
-
-<p>Caveat: I have not passed the 70-410 yet. I&rsquo;m writing this as I&rsquo;m creating this lab and studying. Let&rsquo;s begin.</p>
-
-<p>Requirements:</p>
-
-<ul>
-<li>Windows 8.1 or 10 <strong>Pro</strong> (This is so that you can run Hyper-V)</li>
-<li>At least 30 GB of SSD space (You can use a hard drive, but it&rsquo;s going to be slooowww)</li>
-<li>A basic knowledge of Hyper-V and PowerShell</li>
-<li>Server 2012 R2 iso (you should be able to sign up for a demo - no licenses needed)</li>
-</ul>
-
-<p>I&rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&rsquo;s the only way they&rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &ldquo;Get-VM&rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&rsquo;ll probably learn something very interesting.</p>
-
-<p><a href="/msexams/mcsa-70-410/lab-1">MCSA 70-10 Lab #1</a></p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/">
-        MCSA 70-410 Lab #1 - Setting up the Lab
-      </a>
-    </h1>
-
-    <span class="post-date">Thu, Oct 1, 2015</span>
-
-    
+		<div class="content container">
+			<div class="post">
+			 	<h1>MCSA 70-410 Lab #1 - Setting up the Lab</h1>
+			  <span class="post-date">Thu, Oct 1, 2015</span>
+			      
 
 <h2 id="the-technology:8bd1bf82bb668bb452ca3d0d6b4e19bc">The Technology</h2>
 
@@ -326,31 +286,26 @@ Dismount-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</spa
 
 <p>We&rsquo;re all done for today. In the next post, we&rsquo;ll make a simple script to bring up new VMs in a single command and start setting up a domain!</p>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://andrewaldrich.com/msexams/">
-        Micorosft Exams
-      </a>
-    </h1>
+			</div>
 
-    <span class="post-date">Thu, Oct 1, 2015</span>
+			
+				<h2>Comments</h2>
+				<div id="disqus_thread"></div>
+<script type="text/javascript">
+     
+    var disqus_shortname = 'andrewaldrich'; 
 
-    
-
-<h2 id="i-m-on-a-quest:88261d4be408dbd926f870e290e372ff">I&rsquo;m on a quest!</h2>
-
-<p><em>For my MCSE.</em></p>
-
-<p>I learned pretty quickly that I needed to do everything in a lab environment to drill these PowerShell commands into my head. These tutorials are <em>basically</em> a way of making sure I take good notes. Enjoy!</p>
-
-<p><a href="/msexams/mcsa-70-410">MCSA 70-410</a></p>
-
-  </div>
-  
+     
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-</div>
+			
+		</div>
 
   </body>
 </html>
