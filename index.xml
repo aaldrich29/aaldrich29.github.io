@@ -298,5 +298,23 @@ Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Pare
 </description>
     </item>
     
+    <item>
+      <title>About Me</title>
+      <link>http://andrewaldrich.com/about/</link>
+      <pubDate>Tue, 29 Sep 2015 10:07:27 -0500</pubDate>
+      
+      <guid>http://andrewaldrich.com/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;hi-i-m-andrew:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Hi, I&amp;rsquo;m Andrew.&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m a Sysadmin located in Memphis, TN. When I&amp;rsquo;m not working, I like to spend my time playing Minecraft with my wife, trying to pick back up photography, and styudying for my &lt;a href=&#34;msexams&#34;&gt;MCSE&lt;/a&gt;. I also hang around &lt;a href=&#34;https://www.reddit.com/r/sysadmin/&#34;&gt;/r/sysadmin&lt;/a&gt; whenever I get the chance.&lt;/p&gt;
+
+&lt;p&gt;I started this site as a way to make sure I take &lt;em&gt;good&lt;/em&gt; notes while studying. I&amp;rsquo;m hoping to post anything I create or learn whether it&amp;rsquo;s in my day-to-day job or a personal project.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re trying to get your MCSE, good luck! Hopefully this site will help you out.&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

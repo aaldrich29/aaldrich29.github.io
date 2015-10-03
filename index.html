@@ -3,354 +3,146 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.14" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Andrew Aldrich &middot; Andrew Aldrich </title>
+  <title>Andrew Aldrich &middot; Andrew Aldrich</title>
 
   
   <link rel="stylesheet" href="http://andrewaldrich.com/css/poole.css">
-  <link rel="stylesheet" href="http://andrewaldrich.com/css/syntax.css">
   <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-x.css">
+  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://andrewaldrich.com/touch-icon-144-precomposed.png">
+  <link href="http://andrewaldrich.com/favicon.png" rel="icon">
 
   
-  <link href="http://andrewaldrich.com/index.xml" rel="alternate" type="application/rss+xml" title="Andrew Aldrich" />
+  
+  
+  <link href="http://andrewaldrich.com/index.xml" rel="alternate" type="application/rss+xml" title="Andrew Aldrich &middot; Andrew Aldrich" />
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
 </head>
-
-<body class="">
-
+<body>
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="http://andrewaldrich.com/"><h1>Andrew Aldrich</h1></a>
-      <p class="lead">
-       My Journey to MCSE and Beyond 
-      </p>
+      
+      <h1>Andrew Aldrich</h1>
+      <p class="lead">My Journey to MCSE and Beyond</p>
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="/">Home</a> </li>
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/">Home</a></li>
       
-        <li><a href="/msexams/"> Micorosft Exams </a></li>
+      <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/about/">About Me</a></li>
+      
+      <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/msexams/">Micorosft Exams</a></li>
       
     </ul>
 
-    <p>&copy; 2015. All rights reserved. </p>
-  </div>
-</div>
-
-
-    <div class="content container">
-<div class="posts">
-
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
       
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/">
-        MCSA 70-410 Lab #1 - Setting up the Lab
-      </a>
-    </h1>
-
-    <span class="post-date">Fri, Oct 2, 2015</span>
+      
+      
+      
+      
+      
+      
+      
+      </li>
+    </ul>
 
     
 
-<h2 id="the-technology:8bd1bf82bb668bb452ca3d0d6b4e19bc">The Technology</h2>
-
-<p>Since we&rsquo;re going to want to run a bunch of servers at once, we need to go ahead and streamline the process. The general process is as follows:</p>
-
-<ul>
-<li>Create new VM</li>
-<li>Install Server 2012 R2</li>
-<li>Sysprep and shut down</li>
-<li>Detach VHD, mark read only, use as parent disk</li>
-<li>Create new child disks for infinite servers</li>
-</ul>
-
-<p>That&rsquo;s right, we&rsquo;re going to use [differencing disks]<a href="https://technet.microsoft.com/en-us/library/cc720381.aspx)">https://technet.microsoft.com/en-us/library/cc720381.aspx)</a>. Differencing disks let you take a VHD to a certain state and then create child VHDs. It looks just like a normal disk to the guest OS, but changes are only written to the child disk. Let&rsquo;s break down some numbers:</p>
-
-<ul>
-<li>Fresh install of Server 2012 R2 Core: 7 GB</li>
-
-<li><p>10 VMs @ 7 GB each: 70 GB</p></li>
-
-<li><p>Parent differencing disk: 7GB</p></li>
-
-<li><p>Child differencing disk: 0GB</p></li>
-
-<li><p>10 VMs @ 0 GB each: 7 GB</p></li>
-
-<li><p>100 VMs @ 0 GBs each: 7 GB</p></li>
-
-<li><p>1000 VMs @ 0 GBs each: 7 GB</p></li>
-</ul>
-
-<p>You only have to store the changes. I don&rsquo;t know if this is normally recommended in a production environment, but it is invaluable for running a lab. And here&rsquo;s the other great side effect: each new installation of Windows only takes as long as creating the VM! Saves time and space!</p>
-
-<h2 id="file-structure:8bd1bf82bb668bb452ca3d0d6b4e19bc">File structure</h2>
-
-<p>This is how I have mine setup. Setup yours however you want.</p>
-
-<pre><code>E:.
-└───Lab
-    ├───iso
-    │       2012R2.ISO
-    │       Windows10Pro64.iso
-    │       Windows7Pro64SP1.iso
-    │
-    ├───scripts
-    │		[Scripts I Saved]
-    │       1_NewDomain.ps1
-    │       Create-Lab.ps1
-    │       New-ChildVM.ps1
-    │       New-ParentVM.ps1
-    │
-    └───VM
-            [hard drives].vhdx
-</code></pre>
-
-<h2 id="create-your-first-vm:8bd1bf82bb668bb452ca3d0d6b4e19bc">Create Your First VM</h2>
-
-<p>Remember how I said you need to know PowerShell? You shouldn&rsquo;t need to touch the GUI for <em>anything</em>, except to check yourself. If you need to find a command, check <a href="https://technet.microsoft.com/en-us/library/hh848559.aspx">Microsoft&rsquo;s list of Hyper-V Commands</a>.</p>
-
-<p>Open up an administrative powershell.</p>
-
-<p>Create your first VM with a disk:</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VM</span> -name <span style="color: #BA2121">&quot;Parent&quot;</span> -NewVHDPath <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -NewVHDSizeBytes 40GB -Generation 2
-
-Name   State CPUUsage(%) MemoryAssigned(M) Uptime   Status             Version
-----   ----- ----------- ----------------- ------   ------             -------
-Parent Off   0           0                 00<span style="border: 1px solid #FF0000">:</span>00<span style="border: 1px solid #FF0000">:</span>00 Operating normally 6.2
-</pre></div>
-</p>
-
-<p>Great! You have a vm. Now let&rsquo;s save the VM object itself (not the name) as a variable. This just makes life easier.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> = <span style="color: #008000">Get-VM</span> <span style="color: #BA2121">&quot;Parent&quot;</span>
-</pre></div>
-</p>
-
-<p>Now you can do cool things like:</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VM</span>
-</pre></div>
-</p>
-
-<p>Anyways, now we need to add the ISO file.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Add-VMDvdDrive</span> -Path <span style="color: #BA2121">&quot;E:\Lab\iso\2012R2.ISO&quot;</span>
-</pre></div>
-</p>
-
-<p>And let&rsquo;s go ahead and set it as the default boot device.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$dvd</span>= <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMDvdDrive</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$dvd</span>
-</pre></div>
-</p>
-
-<p>Let&rsquo;s crank her up!</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Start-VM</span>
-<span style="color: #19177C">$vm</span>.state
-Running
-</pre></div>
-</p>
-
-<p>Great! It&rsquo;s running!</p>
-
-<p>
-<figure >
-    
-        <img src="/images/2015-10-02%2008_18_02-Hyper-V%20Manager.png" />
-    
-    
-</figure>
-</p>
-
-<p>So I may have mislead you earlier. Go ahead and open Hyper-V, and double click on your &ldquo;Parent&rdquo; machine. It may say &ldquo;No operating system was loaded. Press a key to retry the boot sequence&hellip;&rdquo; Sorry. Press a key, and then when it says &ldquo;Press any key to boot from CD&rdquo;, do that.</p>
-
-<p>Now that it&rsquo;s up and running, let&rsquo;s go ahead and set the default boot device back to the VHD. You don&rsquo;t have to, but we&rsquo;re all about learning today.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$hdd</span> = <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMHardDiskDrive</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$hd</span>
-</pre></div>
-</p>
-
-<h2 id="creating-the-golden-vhd:8bd1bf82bb668bb452ca3d0d6b4e19bc">Creating the Golden VHD</h2>
-
-<p>Go ahead and walk through the Server 2012 R2 <strong>Core</strong> install like normal. Might as well do Datacenter. Once it boots up and asks you to sign in, go ahead and do that.</p>
-
-<p>Once again, <strong>Core</strong>. We really want to use the Core install for our Parent disk. You can add the GUI features later.</p>
-
-<p>At this point, don&rsquo;t worry about setting up anything specific, like the name, timezone, etc. We&rsquo;re going to sysprep it soon.</p>
-
-<p>You may or may not want to install updates (I didn&rsquo;t my first time around, but I&rsquo;m doing it now). You&rsquo;ve probably noticed by now, though, that we have no network connection.</p>
-
-<p>$vm | Get-VMNetworkAdapter</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Name            IsManagementOs VMName SwitchName MacAddress   Status              IPAddresses
-----            -------------- ------ ---------- ----------   ------              -----------
-Network Adapter False          Parent            00155D020A00 {LostCommunication} {}
-</pre></div>
-</p>
-
-<p>That&rsquo;s because we haven&rsquo;t created a virtual switch yet!</p>
-
-<p>First, let&rsquo;s find which network adapter we want to use. I only have the one:</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Get-NetAdapter</span>
-
-Name                      InterfaceDescription                    ifIndex Status       MacAddress            LinkSpeed ----                      --------------------                    ------- ------       ----------            --------- Ethernet                  Intel(R) Ethernet Connection I217-V           5 Up           D0-50-99-01-B0-23        1 Gbps
-</pre></div>
-</p>
-
-<p>We&rsquo;re going to create a new switch named &ldquo;Wired&rdquo;, attach it to the network interface named &ldquo;Ethernet&rdquo;, and allow the management OS to share the network adapter (otherwise we would need seperate adapters for Hyper-V and the base OS).</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VMSwitch</span> -Name <span style="color: #BA2121">&quot;Wired&quot;</span> -NetAdapterName <span style="color: #BA2121">&quot;Ethernet&quot;</span> -AllowManagementOS <span style="color: #19177C">$true</span>
-</pre></div>
-</p>
-
-<p>Warning: this switched you to a new network adapter, so you will need to reset any cutom IP setting you have made.</p>
-
-<p>Now we can connect our VM to the new switch.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMNetworkAdapter</span> | <span style="color: #008000">Connect-VMNetworkAdapter</span> -SwitchName <span style="color: #BA2121">&quot;Wired&quot;</span>
-</pre></div>
-</p>
-
-<p>You should now be able to ping the outside world from your VM. If you want to run Windows updates, now is the best time to do it.</p>
-
-<ul>
-<li>Run <code>sconfig</code></li>
-<li>Choose option 6</li>
-<li>Press &ldquo;A&rdquo; for all updates or &ldquo;R&rdquo; for Recommended updates (I chose &ldquo;R&rdquo;)</li>
-<li>Wait</li>
-<li>Press &ldquo;A&rdquo; for all updates</li>
-<li>Wait more</li>
-<li>Restart when Prompted</li>
-</ul>
-
-<p>
-<figure >
-    
-        <img src="/images/2015-10-02%2008_16_36-Start.png" />
-    
-    
-</figure>
-</p>
-
-<h2 id="becoming-a-parent:8bd1bf82bb668bb452ca3d0d6b4e19bc">Becoming a Parent</h2>
-
-<p>Go ahead and log back in to your VM. We are going to Sysprep the machine, which resets the GUID and gets it ready to be &ldquo;Unboxed&rdquo; again. You would do this before you, for instance, sold a machine.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">cd C<span style="border: 1px solid #FF0000">:</span>\Windows\System32\Sysprep
-sysprep.exe
-</pre></div>
-</p>
-
-<p>Make the setting match the image below and hit &ldquo;OK&rdquo;.</p>
-
-<p>
-<figure >
-    
-        <img src="/images/2015-10-02%2009_05_54-Start.png" />
-    
-    
-</figure>
-</p>
-
-<p>If you go look at your Parent.vhdx, it should be somewhere in the neighborhood of 8GB. Let&rsquo;s see if we can compact it.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Mount-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -ReadOnly
-Optimize-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -Mode full
-Dismount-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span>
-</pre></div>
-</p>
-
-<p>I saved myself 400MB. Yay.</p>
-
-<p>Now we&rsquo;re ready to truly make this a parent disk. First of all, we don&rsquo;t need that virtual machine anymore. Go ahead and get rid of it.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"> <span style="color: #19177C">$vm</span> | <span style="color: #008000">Remove-VM</span>
-</pre></div>
-</p>
-
-<p>We don&rsquo;t want to Parent.vhdx disk to ever change because that will invalidate all of the child disks. Let&rsquo;s mark it as Read Only.</p>
-
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-ItemProperty</span> -Path <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -Name IsReadOnly -Value <span style="color: #19177C">$true</span>
-</pre></div>
-</p>
-
-<p>If you go to the file&rsquo;s properties, you&rsquo;ll see that it&rsquo;s marked as Read Only.</p>
-
-<p><strong>Ta-Da!!</strong></p>
-
-<p>We&rsquo;re all done for today. In the next post, we&rsquo;ll make a simple script to bring up new VMs in a single command and start setting up a domain!</p>
-
+    <p>Copyright &copy; 2015 <a href="http://andrewaldrich.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
   </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/">
-        MCSA 70-410 Lab #0 - Intro
-      </a>
-    </h1>
-
-    <span class="post-date">Thu, Oct 1, 2015</span>
-
-    <p>Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. <em>However</em>, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.</p>
-
-<p>It turns out, just reading books and watching videos didn&rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.</p>
-
-<p>Caveat: I have not passed the 70-410 yet. I&rsquo;m writing this as I&rsquo;m creating this lab and studying. Let&rsquo;s begin.</p>
-
-<p>Requirements:</p>
-
-<ul>
-<li>Windows 8.1 or 10 <strong>Pro</strong> (This is so that you can run Hyper-V)</li>
-<li>At least 30 GB of SSD space (You can use a hard drive, but it&rsquo;s going to be slooowww)</li>
-<li>A basic knowledge of Hyper-V and PowerShell</li>
-<li>Server 2012 R2 iso (you should be able to sign up for a demo - no licenses needed)</li>
-</ul>
-
-<p>I&rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&rsquo;s the only way they&rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &ldquo;Get-VM&rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&rsquo;ll probably learn something very interesting.</p>
-
-<p><a href="/msexams/mcsa-70-410/lab-1">MCSA 70-10 Lab #1</a></p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://andrewaldrich.com/msexams/">
-        Micorosft Exams
-      </a>
-    </h1>
-
-    <span class="post-date">Thu, Oct 1, 2015</span>
-
-    
-
-<h2 id="i-m-on-a-quest:88261d4be408dbd926f870e290e372ff">I&rsquo;m on a quest!</h2>
-
-<p><em>For my MCSE.</em></p>
-
-<p>I learned pretty quickly that I needed to do everything in a lab environment to drill these PowerShell commands into my head. These tutorials are <em>basically</em> a way of making sure I take good notes. Enjoy!</p>
-
-<p><a href="/msexams/mcsa-70-410">MCSA 70-410</a></p>
-
-  </div>
-  
-</div>
 </div>
 
-  </body>
+
+<div class="content container">
+  <div class="posts">
+    
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/">MCSA 70-410 Lab #1 - Setting up the Lab</a>
+      </h1>
+      <span class="post-date">Oct 2, 2015 &middot; 5 minute read &middot; <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/#disqus_thread">Comments</a>
+      </span>
+      
+      The Technology Since we&rsquo;re going to want to run a bunch of servers at once, we need to go ahead and streamline the process. The general process is as follows: Create new VM Install Server 2012 R2 Sysprep and shut down Detach VHD, mark read only, use as parent disk Create new child disks for infinite servers That&rsquo;s right, we&rsquo;re going to use [differencing disks]https://technet.microsoft.com/en-us/library/cc720381.aspx). Differencing disks let you take a VHD to a certain state and then create child VHDs.
+      <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/">Read On &rarr;</a>
+      
+    </div>
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/">MCSA 70-410 Lab #0 - Intro</a>
+      </h1>
+      <span class="post-date">Oct 1, 2015 &middot; 2 minute read &middot; <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/#disqus_thread">Comments</a>
+      </span>
+      
+      Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. However, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.
+      <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/">Read On &rarr;</a>
+      
+    </div>
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://andrewaldrich.com/msexams/">Micorosft Exams</a>
+      </h1>
+      <span class="post-date">Oct 1, 2015 &middot; 1 minute read &middot; <a href="http://andrewaldrich.com/msexams/#disqus_thread">Comments</a>
+      </span>
+      
+      I&rsquo;m on a quest! For my MCSE. I learned pretty quickly that I needed to do everything in a lab environment to drill these PowerShell commands into my head. These tutorials are basically a way of making sure I take good notes. Enjoy! MCSA 70-410
+      
+      
+    </div>
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://andrewaldrich.com/about/">About Me</a>
+      </h1>
+      <span class="post-date">Sep 29, 2015 &middot; 1 minute read &middot; <a href="http://andrewaldrich.com/about/#disqus_thread">Comments</a>
+      </span>
+      
+      Hi, I&rsquo;m Andrew. I&rsquo;m a Sysadmin located in Memphis, TN. When I&rsquo;m not working, I like to spend my time playing Minecraft with my wife, trying to pick back up photography, and styudying for my MCSE. I also hang around /r/sysadmin whenever I get the chance. I started this site as a way to make sure I take good notes while studying. I&rsquo;m hoping to post anything I create or learn whether it&rsquo;s in my day-to-day job or a personal project.
+      <a href="http://andrewaldrich.com/about/">Read On &rarr;</a>
+      
+    </div>
+    
+    
+    
+  </div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "andrewaldrich";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+</body>
 </html>
+

@@ -10,6 +10,33 @@
     <atom:link href="http://andrewaldrich.com/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>MCSA 70-410 Lab #0 - Intro</title>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</link>
+      <pubDate>Thu, 01 Oct 2015 10:08:12 -0500</pubDate>
+      
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</guid>
+      <description>&lt;p&gt;Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. &lt;em&gt;However&lt;/em&gt;, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.&lt;/p&gt;
+
+&lt;p&gt;It turns out, just reading books and watching videos didn&amp;rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.&lt;/p&gt;
+
+&lt;p&gt;Caveat: I have not passed the 70-410 yet. I&amp;rsquo;m writing this as I&amp;rsquo;m creating this lab and studying. Let&amp;rsquo;s begin.&lt;/p&gt;
+
+&lt;p&gt;Requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows 8.1 or 10 &lt;strong&gt;Pro&lt;/strong&gt; (This is so that you can run Hyper-V)&lt;/li&gt;
+&lt;li&gt;At least 30 GB of SSD space (You can use a hard drive, but it&amp;rsquo;s going to be slooowww)&lt;/li&gt;
+&lt;li&gt;A basic knowledge of Hyper-V and PowerShell&lt;/li&gt;
+&lt;li&gt;Server 2012 R2 iso (you should be able to sign up for a demo - no licenses needed)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&amp;rsquo;s the only way they&amp;rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &amp;ldquo;Get-VM&amp;rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&amp;rsquo;ll probably learn something very interesting.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>MCSA 70-410 Lab #1 - Setting up the Lab</title>
       <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/</link>
       <pubDate>Fri, 02 Oct 2015 10:00:12 -0500</pubDate>
@@ -250,33 +277,6 @@ Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Pare
 &lt;p&gt;&lt;strong&gt;Ta-Da!!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;We&amp;rsquo;re all done for today. In the next post, we&amp;rsquo;ll make a simple script to bring up new VMs in a single command and start setting up a domain!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>MCSA 70-410 Lab #0 - Intro</title>
-      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</link>
-      <pubDate>Thu, 01 Oct 2015 10:08:12 -0500</pubDate>
-      
-      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</guid>
-      <description>&lt;p&gt;Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. &lt;em&gt;However&lt;/em&gt;, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.&lt;/p&gt;
-
-&lt;p&gt;It turns out, just reading books and watching videos didn&amp;rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.&lt;/p&gt;
-
-&lt;p&gt;Caveat: I have not passed the 70-410 yet. I&amp;rsquo;m writing this as I&amp;rsquo;m creating this lab and studying. Let&amp;rsquo;s begin.&lt;/p&gt;
-
-&lt;p&gt;Requirements:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Windows 8.1 or 10 &lt;strong&gt;Pro&lt;/strong&gt; (This is so that you can run Hyper-V)&lt;/li&gt;
-&lt;li&gt;At least 30 GB of SSD space (You can use a hard drive, but it&amp;rsquo;s going to be slooowww)&lt;/li&gt;
-&lt;li&gt;A basic knowledge of Hyper-V and PowerShell&lt;/li&gt;
-&lt;li&gt;Server 2012 R2 iso (you should be able to sign up for a demo - no licenses needed)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I&amp;rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&amp;rsquo;s the only way they&amp;rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &amp;ldquo;Get-VM&amp;rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&amp;rsquo;ll probably learn something very interesting.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
