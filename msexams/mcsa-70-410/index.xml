@@ -56,7 +56,7 @@
 &lt;li&gt;Create new child disks for infinite servers&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;That&amp;rsquo;s right, we&amp;rsquo;re going to use [differencing disks]&lt;a href=&#34;https://technet.microsoft.com/en-us/library/cc720381.aspx)&#34;&gt;https://technet.microsoft.com/en-us/library/cc720381.aspx)&lt;/a&gt;. Differencing disks let you take a VHD to a certain state and then create child VHDs. It looks just like a normal disk to the guest OS, but changes are only written to the child disk. Let&amp;rsquo;s break down some numbers:&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s right, we&amp;rsquo;re going to use &lt;a href=&#34;https://technet.microsoft.com/en-us/library/cc720381.aspx&#34;&gt;differencing disks&lt;/a&gt;. Differencing disks let you take a VHD to a certain state and then create child VHDs. It looks just like a normal disk to the guest OS, but changes are only written to the child disk. Let&amp;rsquo;s break down some numbers:&lt;/p&gt;
 
 &lt;p&gt;Traditional installs:&lt;/p&gt;
 
@@ -89,7 +89,7 @@
     │       Windows7Pro64SP1.iso
     │
     ├───scripts
-    │		[Scripts I Saved]
+    │	      [Scripts I Saved]
     │       1_NewDomain.ps1
     │       Create-Lab.ps1
     │       New-ChildVM.ps1
