@@ -95,20 +95,21 @@
 
 <p>That&rsquo;s right, we&rsquo;re going to use [differencing disks]<a href="https://technet.microsoft.com/en-us/library/cc720381.aspx)">https://technet.microsoft.com/en-us/library/cc720381.aspx)</a>. Differencing disks let you take a VHD to a certain state and then create child VHDs. It looks just like a normal disk to the guest OS, but changes are only written to the child disk. Let&rsquo;s break down some numbers:</p>
 
+<p>Traditional installs:</p>
+
 <ul>
 <li>Fresh install of Server 2012 R2 Core: 7 GB</li>
+<li>10 VMs @ 7 GB each: 70 GB</li>
+</ul>
 
-<li><p>10 VMs @ 7 GB each: 70 GB</p></li>
+<p>Differencing Disks:</p>
 
-<li><p>Parent differencing disk: 7GB</p></li>
-
-<li><p>Child differencing disk: 0GB</p></li>
-
-<li><p>10 VMs @ 0 GB each: 7 GB</p></li>
-
-<li><p>100 VMs @ 0 GBs each: 7 GB</p></li>
-
-<li><p>1000 VMs @ 0 GBs each: 7 GB</p></li>
+<ul>
+<li>Parent differencing disk: 7GB</li>
+<li>Child differencing disk: 0GB</li>
+<li>10 VMs @ 0 GB each: 7 GB</li>
+<li>100 VMs @ 0 GBs each: 7 GB</li>
+<li>1000 VMs @ 0 GBs each: 7 GB</li>
 </ul>
 
 <p>You only have to store the changes. I don&rsquo;t know if this is normally recommended in a production environment, but it is invaluable for running a lab. And here&rsquo;s the other great side effect: each new installation of Windows only takes as long as creating the VM! Saves time and space!</p>

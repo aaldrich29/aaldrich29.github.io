@@ -31,20 +31,21 @@
 
 &lt;p&gt;That&amp;rsquo;s right, we&amp;rsquo;re going to use [differencing disks]&lt;a href=&#34;https://technet.microsoft.com/en-us/library/cc720381.aspx)&#34;&gt;https://technet.microsoft.com/en-us/library/cc720381.aspx)&lt;/a&gt;. Differencing disks let you take a VHD to a certain state and then create child VHDs. It looks just like a normal disk to the guest OS, but changes are only written to the child disk. Let&amp;rsquo;s break down some numbers:&lt;/p&gt;
 
+&lt;p&gt;Traditional installs:&lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Fresh install of Server 2012 R2 Core: 7 GB&lt;/li&gt;
+&lt;li&gt;10 VMs @ 7 GB each: 70 GB&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;li&gt;&lt;p&gt;10 VMs @ 7 GB each: 70 GB&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;Differencing Disks:&lt;/p&gt;
 
-&lt;li&gt;&lt;p&gt;Parent differencing disk: 7GB&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Child differencing disk: 0GB&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;10 VMs @ 0 GB each: 7 GB&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;100 VMs @ 0 GBs each: 7 GB&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;1000 VMs @ 0 GBs each: 7 GB&lt;/p&gt;&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;Parent differencing disk: 7GB&lt;/li&gt;
+&lt;li&gt;Child differencing disk: 0GB&lt;/li&gt;
+&lt;li&gt;10 VMs @ 0 GB each: 7 GB&lt;/li&gt;
+&lt;li&gt;100 VMs @ 0 GBs each: 7 GB&lt;/li&gt;
+&lt;li&gt;1000 VMs @ 0 GBs each: 7 GB&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;You only have to store the changes. I don&amp;rsquo;t know if this is normally recommended in a production environment, but it is invaluable for running a lab. And here&amp;rsquo;s the other great side effect: each new installation of Windows only takes as long as creating the VM! Saves time and space!&lt;/p&gt;
