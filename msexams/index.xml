@@ -19,7 +19,7 @@
 
 &lt;p&gt;Today, we&amp;rsquo;re going to start creating some child VMs! &lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/&#34;&gt;Last time&lt;/a&gt;, we did the hard work of creating a parent VHD. This time, we&amp;rsquo;re going to create a child VM and put it all in a script so that it only takes a few seconds to spin up another VM.&lt;/p&gt;
 
-&lt;p&gt;First, a note. I moved my Parent.vhdx to the root of my lab folder to keep it seperate from all of the VMs we&amp;rsquo;re going to make. It looks like this:&lt;/p&gt;
+&lt;p&gt;First, a note. I moved my Parent.vhdx to the root of my lab folder to keep it separate from all of the VMs we&amp;rsquo;re going to make. It looks like this:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;PS E:\&amp;gt; tree /F
 Folder PATH listing for volume SSD
