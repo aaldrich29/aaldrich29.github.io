@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>MCSA 70-410 Lab #2 - Creating Child VMs &middot; Andrew Aldrich</title>
+
+  
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-x.css">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://andrewaldrich.com/touch-icon-144-precomposed.png">
+  <link href="http://andrewaldrich.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Andrew Aldrich</h1>
+      <p class="lead">My Journey to MCSE and Beyond</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/">Home</a></li>
+      <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
+      
+
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/about/">About Me</a></li>
+      
+
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/msexams/">Micorosft Exams</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      
+      
+      
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2015 <a href="http://andrewaldrich.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>MCSA 70-410 Lab #2 - Creating Child VMs</h1>
+    <span class="post-date">Oct 5, 2015 &middot; 3 minute read &middot; <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-2/#disqus_thread">Comments</a>
+    </span>
+    
+
+<p>Today, we&rsquo;re going to start creating some child VMs! <a href="/msexams/mcsa-70-410/lab-1/">Last time</a>, we did the hard work of creating a parent VHD. This time, we&rsquo;re going to create a child VM and put it all in a script so that it only takes a few seconds to spin up another VM.</p>
+
+<p>First, a note. I moved my Parent.vhdx to the root of my lab folder to keep it seperate from all of the VMs we&rsquo;re going to make. It looks like this:</p>
+
+<pre><code>PS E:\&gt; tree /F
+Folder PATH listing for volume SSD
+Volume serial number is 20B9-6EE9
+E:.
+└───Lab
+    │   Parent.vhdx
+    │
+    ├───iso
+    │       2012R2.ISO
+    │       Windows10Pro64.iso
+    │       Windows7Pro64SP1.iso
+    │
+    ├───scripts
+    │       Create-Lab.ps1
+    │       New-ChildVM.ps1
+    │
+    └───VM
+</code></pre>
+
+<p>Without further adue, let&rsquo;s get started.</p>
+
+<h2 id="having-a-baby-server:513d37374c47a2cd3087647afb3c4245">Having a Baby Server</h2>
+
+<p>Let&rsquo;s create the first one manually. Just to review, we&rsquo;ll simply create a new VM with a Child differencing disk, boot it up, and we&rsquo;re done. Let&rsquo;s call the new VM <code>Test1</code> for now.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> = <span style="color: #008000">New-VM</span> -Name <span style="color: #BA2121">&quot;Test1&quot;</span> -Generation 2
+<span style="color: #408080; font-style: italic"># Save the VM object in $vm for later use</span>
+</pre></div>
+</p>
+
+<p>Now, let&rsquo;s go ahead and attach the network adapter to our &ldquo;Wired&rdquo; network.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMNetworkAdapter</span> | <span style="color: #008000">Connect-VMNetworkAdapter</span> -SwitchName <span style="color: #BA2121">&quot;Wired&quot;</span>
+</pre></div>
+</p>
+
+<p>Here&rsquo;s the fun part: differencing disks.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VHD</span> -Path <span style="color: #BA2121">&quot;E:\Lab\VM\Test1.vhdx&quot;</span> -SizeBytes 40gb -ParentPath <span style="color: #BA2121">&quot;E:\Lab\Parent.vhdx&quot;</span> -Differencing
+<span style="color: #408080; font-style: italic"># Notice the -Differencing switch.</span>
+
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Add-VMHardDiskDrive</span> -Path <span style="color: #BA2121">&quot;E:\Lab\VM\Test1.vhdx&quot;</span>
+</pre></div>
+</p>
+
+<p>And finally, let&rsquo;s set the VHD as the default startup item. This avoids the wait for PXE boot.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$hdd</span> = <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMHardDiskDrive</span>
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$hdd</span>
+</pre></div>
+</p>
+
+<p>Start it up!</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Start-VM</span>
+</pre></div>
+</p>
+
+<p>It&rsquo;s going to boot up and look like this:
+
+<figure >
+    
+        <img src="/images/2015-10-04%2020_30_13-Test1.png" />
+    
+    
+</figure>
+
+Look at how easy that is! Install time of &lt; 30 seconds. Great! Now get rid of it.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Stop-VM</span>
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Remove-VM</span>
+<span style="color: #008000">Remove-Item</span> E<span style="border: 1px solid #FF0000">:</span>\Lab\VM\Test1.vhdx
+</pre></div>
+</p>
+
+<p>Like all things you&rsquo;re going to do over and over again, this should be stored as a script. Here&rsquo;s mine. Customize it or make your own to your liking.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic"># New-ChildVM.ps1</span>
+
+<span style="color: #008000; font-weight: bold">Param</span>(
+  <span style="color: #880000">[string]</span><span style="color: #19177C">$vmname</span>
+)
+
+<span style="color: #008000; font-weight: bold">if</span>(!<span style="color: #19177C">$vmname</span>){<span style="color: #19177C">$vmname</span>= <span style="color: #008000">Read-Host</span> <span style="color: #BA2121">&quot;New VM Name&quot;</span>}
+<span style="color: #19177C">$vmpath</span>=<span style="color: #BA2121">&quot;E:\Lab\VM&quot;</span>
+<span style="color: #19177C">$parentVhd</span> = <span style="color: #BA2121">&quot;E:\Lab\Parent.vhdx&quot;</span>
+
+<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Creating VM $vmname&quot;</span>
+<span style="color: #19177C">$vm</span> = <span style="color: #008000">New-VM</span> -Name <span style="color: #19177C">$vmname</span> -Generation 2
+
+<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Connecting Network adapter to VMSwitch&quot;</span>
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMNetworkAdapter</span> | <span style="color: #008000">Connect-VMNetworkAdapter</span> -SwitchName <span style="color: #BA2121">&quot;Wired&quot;</span>
+
+<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Creating Child Differencing Disk and adding to VM&quot;</span>
+<span style="color: #008000">New-VHD</span> -Path <span style="color: #BA2121">&quot;$vmpath\$vmname.vhdx&quot;</span> -SizeBytes 40gb -ParentPath <span style="color: #19177C">$parentVhd</span> -Differencing
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Add-VMHardDiskDrive</span> -Path <span style="color: #BA2121">&quot;$vmpath\$vmname.vhdx&quot;</span>
+
+<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Setting as Boot Device&quot;</span>
+<span style="color: #19177C">$hdd</span> = <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMHardDiskDrive</span>
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$hdd</span>
+
+
+<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Starting $vmname&quot;</span>
+<span style="color: #19177C">$vm</span> | <span style="color: #008000">Start-VM</span>
+
+<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Enjoy your new VM&quot;</span>
+</pre></div>
+</p>
+
+<p>Mine&rsquo;s saved as <code>New-ChildVM.ps1</code>. All I have to do it is CD to the directory and run it. Remember, in PowerShell, you can only execute something in the current directory if it&rsquo;s prefixed with <code>.\</code> (which stands for the current directory).</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">cd E<span style="border: 1px solid #FF0000">:</span>\Lab\scripts\
+.\<span style="color: #008000">New-ChildVM</span>.ps1 <span style="color: #BA2121">&quot;Test2&quot;</span>
+</pre></div>
+</p>
+
+<p>And if you get something like this&hellip;</p>
+
+<pre><code>PS E:\Lab\scripts&gt; .\New-ChildVM.ps1 &quot;Test2&quot;
+.\New-ChildVM.ps1 : File E:\Lab\scripts\New-ChildVM.ps1 cannot be loaded because running scripts is disabled on this
+system. For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ .\New-ChildVM.ps1 &quot;Test2&quot;
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+</code></pre>
+
+<p>You have to run this&hellip;
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-ExecutionPolicy</span> Unrestricted
+</pre></div>
+</p>
+
+<p>And you can try again now.
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">.\<span style="color: #008000">New-ChildVM</span>.ps1 <span style="color: #BA2121">&quot;Test2&quot;</span>
+</pre></div>
+</p>
+
+<p>Once you get everything going to your liking, you&rsquo;re done for this lesson! Next time, we&rsquo;re going to start up our first Forest and Domain. You can also get rid of this VM.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "andrewaldrich";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "andrewaldrich";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+</body>
+</html>
+
