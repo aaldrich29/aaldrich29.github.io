@@ -6,7 +6,7 @@
     <description>Recent content in Mcsa 70 410 on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Oct 2015 10:00:12 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2015 10:00:12 -0500</lastBuildDate>
     <atom:link href="http://andrewaldrich.com/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -277,7 +277,163 @@ Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Pare
 
 &lt;p&gt;&lt;strong&gt;Ta-Da!!&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;We&amp;rsquo;re all done for today. In the next post, we&amp;rsquo;ll make a simple script to bring up new VMs in a single command and start setting up a domain!&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re all done for today. In the next post, we&amp;rsquo;ll make a simple script to bring up new VMs in a single command!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-2&#34;&gt;MCSA 70-10 Lab #2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MCSA 70-410 Lab #2 - Creating Child VMs</title>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-2/</link>
+      <pubDate>Mon, 05 Oct 2015 10:00:12 -0500</pubDate>
+      
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-2/</guid>
+      <description>
+
+&lt;p&gt;Today, we&amp;rsquo;re going to start creating some child VMs! &lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-1/&#34;&gt;Last time&lt;/a&gt;, we did the hard work of creating a parent VHD. This time, we&amp;rsquo;re going to create a child VM and put it all in a script so that it only takes a few seconds to spin up another VM.&lt;/p&gt;
+
+&lt;p&gt;First, a note. I moved my Parent.vhdx to the root of my lab folder to keep it seperate from all of the VMs we&amp;rsquo;re going to make. It looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PS E:\&amp;gt; tree /F
+Folder PATH listing for volume SSD
+Volume serial number is 20B9-6EE9
+E:.
+└───Lab
+    │   Parent.vhdx
+    │
+    ├───iso
+    │       2012R2.ISO
+    │       Windows10Pro64.iso
+    │       Windows7Pro64SP1.iso
+    │
+    ├───scripts
+    │       Create-Lab.ps1
+    │       New-ChildVM.ps1
+    │
+    └───VM
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Without further adue, let&amp;rsquo;s get started.&lt;/p&gt;
+
+&lt;h2 id=&#34;having-a-baby-server:513d37374c47a2cd3087647afb3c4245&#34;&gt;Having a Baby Server&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s create the first one manually. Just to review, we&amp;rsquo;ll simply create a new VM with a Child differencing disk, boot it up, and we&amp;rsquo;re done. Let&amp;rsquo;s call the new VM &lt;code&gt;Test1&lt;/code&gt; for now.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; = &lt;span style=&#34;color: #008000&#34;&gt;New-VM&lt;/span&gt; -Name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Test1&amp;quot;&lt;/span&gt; -Generation 2
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Save the VM object in $vm for later use&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s go ahead and attach the network adapter to our &amp;ldquo;Wired&amp;rdquo; network.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; -SwitchName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the fun part: differencing disks.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VHD&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Test1.vhdx&amp;quot;&lt;/span&gt; -SizeBytes 40gb -ParentPath &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\Parent.vhdx&amp;quot;&lt;/span&gt; -Differencing
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Notice the -Differencing switch.&lt;/span&gt;
+
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Test1.vhdx&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And finally, let&amp;rsquo;s set the VHD as the default startup item. This avoids the wait for PXE boot.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt; = &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Start it up!&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Start-VM&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s going to boot up and look like this:
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-04%2020_30_13-Test1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+Look at how easy that is! Install time of &amp;lt; 30 seconds. Great! Now get rid of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Stop-VM&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Remove-VM&lt;/span&gt;
+&lt;span style=&#34;color: #008000&#34;&gt;Remove-Item&lt;/span&gt; E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\VM\Test1.vhdx
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Like all things you&amp;rsquo;re going to do over and over again, this should be stored as a script. Here&amp;rsquo;s mine. Customize it or make your own to your liking.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# New-ChildVM.ps1&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;Param&lt;/span&gt;(
+  &lt;span style=&#34;color: #880000&#34;&gt;[string]&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt;
+)
+
+&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt;(!&lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt;){&lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt;= &lt;span style=&#34;color: #008000&#34;&gt;Read-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;New VM Name&amp;quot;&lt;/span&gt;}
+&lt;span style=&#34;color: #19177C&#34;&gt;$vmpath&lt;/span&gt;=&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$parentVhd&lt;/span&gt; = &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\Parent.vhdx&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Creating VM $vmname&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; = &lt;span style=&#34;color: #008000&#34;&gt;New-VM&lt;/span&gt; -Name &lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt; -Generation 2
+
+&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Connecting Network adapter to VMSwitch&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; -SwitchName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Creating Child Differencing Disk and adding to VM&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #008000&#34;&gt;New-VHD&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;$vmpath\$vmname.vhdx&amp;quot;&lt;/span&gt; -SizeBytes 40gb -ParentPath &lt;span style=&#34;color: #19177C&#34;&gt;$parentVhd&lt;/span&gt; -Differencing
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;$vmpath\$vmname.vhdx&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Setting as Boot Device&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt; = &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt;
+
+
+&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Starting $vmname&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Start-VM&lt;/span&gt;
+
+&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Enjoy your new VM&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Mine&amp;rsquo;s saved as &lt;code&gt;New-ChildVM.ps1&lt;/code&gt;. All I have to do it is CD to the directory and run it. Remember, in PowerShell, you can only execute something in the current directory if it&amp;rsquo;s prefixed with &lt;code&gt;.\&lt;/code&gt; (which stands for the current directory).&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cd E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\scripts\
+.\&lt;span style=&#34;color: #008000&#34;&gt;New-ChildVM&lt;/span&gt;.ps1 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And if you get something like this&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PS E:\Lab\scripts&amp;gt; .\New-ChildVM.ps1 &amp;quot;Test2&amp;quot;
+.\New-ChildVM.ps1 : File E:\Lab\scripts\New-ChildVM.ps1 cannot be loaded because running scripts is disabled on this
+system. For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ .\New-ChildVM.ps1 &amp;quot;Test2&amp;quot;
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You have to run this&amp;hellip;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-ExecutionPolicy&lt;/span&gt; Unrestricted
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And you can try again now.
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;.\&lt;span style=&#34;color: #008000&#34;&gt;New-ChildVM&lt;/span&gt;.ps1 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Once you get everything going to your liking, you&amp;rsquo;re done for this lesson! Next time, we&amp;rsquo;re going to start up our first Forest and Domain. You can also get rid of this VM.&lt;/p&gt;
 </description>
     </item>
     
