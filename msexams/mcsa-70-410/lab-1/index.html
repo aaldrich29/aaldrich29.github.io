@@ -233,13 +233,13 @@ Name                      InterfaceDescription                    ifIndex Status
 </pre></div>
 </p>
 
-<p>We&rsquo;re going to create a new switch named &ldquo;Wired&rdquo;, attach it to the network interface named &ldquo;Ethernet&rdquo;, and allow the management OS to share the network adapter (otherwise we would need seperate adapters for Hyper-V and the base OS).</p>
+<p>We&rsquo;re going to create a new switch named &ldquo;Wired&rdquo;, attach it to the network interface named &ldquo;Ethernet&rdquo;, and allow the management OS to share the network adapter (otherwise we would need separate adapters for Hyper-V and the base OS).</p>
 
 <p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VMSwitch</span> -Name <span style="color: #BA2121">&quot;Wired&quot;</span> -NetAdapterName <span style="color: #BA2121">&quot;Ethernet&quot;</span> -AllowManagementOS <span style="color: #19177C">$true</span>
 </pre></div>
 </p>
 
-<p>Warning: this switched you to a new network adapter, so you will need to reset any cutom IP setting you have made.</p>
+<p>Warning: this switched you to a new network adapter, so you will need to reset any custom IP setting you have made.</p>
 
 <p>Now we can connect our VM to the new switch.</p>
 

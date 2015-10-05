@@ -323,13 +323,13 @@ Name                      InterfaceDescription                    ifIndex Status
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
-&lt;p&gt;We&amp;rsquo;re going to create a new switch named &amp;ldquo;Wired&amp;rdquo;, attach it to the network interface named &amp;ldquo;Ethernet&amp;rdquo;, and allow the management OS to share the network adapter (otherwise we would need seperate adapters for Hyper-V and the base OS).&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re going to create a new switch named &amp;ldquo;Wired&amp;rdquo;, attach it to the network interface named &amp;ldquo;Ethernet&amp;rdquo;, and allow the management OS to share the network adapter (otherwise we would need separate adapters for Hyper-V and the base OS).&lt;/p&gt;
 
 &lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VMSwitch&lt;/span&gt; -Name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt; -NetAdapterName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Ethernet&amp;quot;&lt;/span&gt; -AllowManagementOS &lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
-&lt;p&gt;Warning: this switched you to a new network adapter, so you will need to reset any cutom IP setting you have made.&lt;/p&gt;
+&lt;p&gt;Warning: this switched you to a new network adapter, so you will need to reset any custom IP setting you have made.&lt;/p&gt;
 
 &lt;p&gt;Now we can connect our VM to the new switch.&lt;/p&gt;
 
@@ -465,7 +465,7 @@ Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Pare
 
 &lt;h2 id=&#34;hi-i-m-andrew:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Hi, I&amp;rsquo;m Andrew.&lt;/h2&gt;
 
-&lt;p&gt;I&amp;rsquo;m a Sysadmin located in Memphis, TN. When I&amp;rsquo;m not working, I like to spend my time playing Minecraft with my wife, trying to pick back up photography, and styudying for my &lt;a href=&#34;msexams&#34;&gt;MCSE&lt;/a&gt;. I also hang around &lt;a href=&#34;https://www.reddit.com/r/sysadmin/&#34;&gt;/r/sysadmin&lt;/a&gt; whenever I get the chance.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a Sysadmin located in Memphis, TN. When I&amp;rsquo;m not working, I like to spend my time playing Minecraft with my wife, trying to pick back up photography, and studying for my &lt;a href=&#34;msexams&#34;&gt;MCSE&lt;/a&gt;. I also hang around &lt;a href=&#34;https://www.reddit.com/r/sysadmin/&#34;&gt;/r/sysadmin&lt;/a&gt; whenever I get the chance.&lt;/p&gt;
 
 &lt;p&gt;I started this site as a way to make sure I take &lt;em&gt;good&lt;/em&gt; notes while studying. I&amp;rsquo;m hoping to post anything I create or learn whether it&amp;rsquo;s in my day-to-day job or a personal project.&lt;/p&gt;
 
