@@ -6,8 +6,172 @@
     <description>Recent content on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Oct 2015 10:00:12 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2015 20:47:28 -0500</lastBuildDate>
     <atom:link href="http://andrewaldrich.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MCSA 70-410 Lab #3 - Creating Child VMs</title>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-3/</link>
+      <pubDate>Sun, 25 Oct 2015 20:47:28 -0500</pubDate>
+      
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-3/</guid>
+      <description>
+
+&lt;p&gt;Last time, we made sure we could very easily create chile VMs. This time, we&amp;rsquo;re going to start setting up servers and create a Forest and Domain.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Also, a quick reminder: please don&amp;rsquo;t copy and paste all of these commands. You won&amp;rsquo;t learn them like you should if you do.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with our first DC:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cd E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\scripts\
+.\&lt;span style=&#34;color: #008000&#34;&gt;New-ChildVM&lt;/span&gt;.ps1 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;DC1&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-04%2020_30_13-Test1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Go ahead and sign in. Remeber how we did a Server Core install? Well, that&amp;rsquo;s why you don&amp;rsquo;t have a desktop. This is going to be fun.&lt;/p&gt;
+
+&lt;p&gt;First things first. Most of this can be done through &lt;code&gt;sconfig&lt;/code&gt;, but we also want to know how to do it manually.&lt;/p&gt;
+
+&lt;p&gt;Fix the time / timezone.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;timedate.cpl
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Rename the server to &lt;code&gt;DC1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;powershell &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#remember, you start in a cmd window&lt;/span&gt;
+&lt;span style=&#34;color: #008000&#34;&gt;Rename-Computer&lt;/span&gt; DC1
+
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#Also an acceptable answer:&lt;/span&gt;
+netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;%&lt;/span&gt;computername% /newname&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;DC1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Go ahead and run &lt;code&gt;sconfig&lt;/code&gt;. It has some interesting options. Might as well turn on Remote Desktop while you&amp;rsquo;re in there.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note to self: this would be a good security policy to set.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-04%2020_58_49.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Go ahead and restart the server, either using &lt;code&gt;sconfig&lt;/code&gt; or &lt;code&gt;shutdown -r -t 0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-active-directory:5e0099ae13246dec541dc1a4949e1f92&#34;&gt;Install Active Directory&lt;/h2&gt;
+
+&lt;p&gt;All right, it&amp;rsquo;s show time. Drop yourself into PowerShell on the server and run this.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools -Restart
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now that the AD feature is installed, we can make a new Forest and Domain. I&amp;rsquo;m going to use &lt;code&gt;Home.local&lt;/code&gt; as my domain name.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In a production environment, best practices state to make your active directory domain a subdomain of public domain that you own, like &lt;code&gt;ad.myawesomebusiness.com&lt;/code&gt;. CA&amp;rsquo;s will no longer sign certificates for fake domains (like *.local). You can, however, get a CA to sign a certificate for &lt;code&gt;exchangeserver.ad.myawesomebusiness.com&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-ADDSForest -DomainName Home.local -InstallDNS&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This will create a new Forst with a domain name &lt;code&gt;Home.local&lt;/code&gt; and it will isntall a DNS server (which is crucial for AD to function).&lt;/p&gt;
+
+&lt;p&gt;You will be asked for a Safe Mode password. Just make it one you&amp;rsquo;ll remember. This is in case you need to go into Active Directory Restore mode or boot the domain controller into safe mode. Rmember, domain controllers do not have &lt;em&gt;any&lt;/em&gt; local accounts.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-04%2021_14_50.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You will see some warnings. The DNS delegation one is nothing to worry about. The static IP one, however, is something we should talk about. You really want your AD and DNS servers to have static IPs. In fact, DNS can&amp;rsquo;t function (for long) without it.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-25%2016_54_40-DC1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;When the server comes up, you&amp;rsquo;ll notice that you are now signing in as &lt;code&gt;HOME\Administrator&lt;/code&gt;. Login and we will change the IP address. I&amp;rsquo;m going to assume you know &lt;em&gt;what&lt;/em&gt; to set you IP address to, but here is how:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-NetIPAddress&lt;/span&gt; -IPAddress 192.168.2.110 -DefaultGateway 192.168.2.1 -PrefixLength 24 -InterfaceAlias Ethernet
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You can get the interface alias by running Get-NetAdapter. The standard home network is going to be on a &lt;code&gt;255.255.255.0&lt;/code&gt; subnet mask, which is the equivalent of a &lt;code&gt;/24&lt;/code&gt; network prefix length. If you don&amp;rsquo;t understand this, you need to study up on subnetting. It will be on the exam.&lt;/p&gt;
+
+&lt;p&gt;Now, we want to set the DNS servers on the server. Let&amp;rsquo;s set one to the server itself (it&amp;rsquo;s now a DNS server, afterall), and set the other to our router.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-DnsClientServerAddress&lt;/span&gt; -InterfaceAlias Ethernet -ServerAddresses {192.168.2.110,192.168.2.1}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;A good ole &lt;code&gt;ipconfig /all&lt;/code&gt; can confirm our changes.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You could have changed all this through sconfig, but you don&amp;rsquo;t need a tutorial for that!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;add-a-second-dc:5e0099ae13246dec541dc1a4949e1f92&#34;&gt;Add a Second DC&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s add a second DC. From what we&amp;rsquo;ve learned, go ahead and take these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rename the server&lt;/li&gt;
+&lt;li&gt;Enable Remote Desktop&lt;/li&gt;
+&lt;li&gt;Set the time zone&lt;/li&gt;
+&lt;li&gt;Set a static IP (I&amp;rsquo;m setting mine to 192.168.2.111)&lt;/li&gt;
+&lt;li&gt;Set the DNS servers, &lt;strong&gt;pointing one of them to DC1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Install the Active Directory Domain Services feature.&lt;/li&gt;
+&lt;li&gt;Restart&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Don&amp;rsquo;t use sconfig! (except for remote desktop). You&amp;rsquo;ll have lots of chances to use it later.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There is a reason that we set one of the DNS server to point to DC1. When you attempt to join a domain, the server will do a DNS lookup for the domain name (&lt;code&gt;Home.local&lt;/code&gt;). You router will not have an entry for it, but DC1 does.&lt;/p&gt;
+
+&lt;p&gt;Now, all that&amp;rsquo;s left is to promote it as a domain controller.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-ADDSDomainController -DomainName Home.local -InstallDNS&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The server will restart, and you will have two functioning domain controllers! If you want to check on your domain controllers, run some of these commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# List DCs&lt;/span&gt;
+netdom query dc
+
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Check FSMO roles&lt;/span&gt;
+&lt;span style=&#34;color: #008000&#34;&gt;Get-ADDomain&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Select-Object&lt;/span&gt; InfrastructureMaster, RIDMaster, PDCEmulator, DomainNamingMaster, SchemaMaster
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it for today. Next time, we are going to setup a utility server with (&lt;strong&gt;GASP&lt;/strong&gt;) a GUI and all of the management tools. Note: It&amp;rsquo;s important to know how to go from Core to Minimal to Full GUI installations.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>MCSA 70-410 Lab #2 - Creating Child VMs</title>

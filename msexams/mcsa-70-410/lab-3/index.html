@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>MCSA 70-410 Lab #3 - Creating Child VMs &middot; Andrew Aldrich</title>
+
+  
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-x.css">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://andrewaldrich.com/touch-icon-144-precomposed.png">
+  <link href="http://andrewaldrich.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="author" href="http://plus.google.com/116239400181166659935">
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Andrew Aldrich</h1>
+      <p class="lead">My Journey to MCSE and Beyond</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/">Home</a></li>
+      <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
+      
+
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/about/">About Me</a></li>
+      
+
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/msexams/">Micorosft Exams</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      
+      
+      
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2015 <a href="http://andrewaldrich.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>MCSA 70-410 Lab #3 - Creating Child VMs</h1>
+    <span class="post-date">Oct 25, 2015 &middot; 4 minute read &middot; <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-3/#disqus_thread">Comments</a>
+    </span>
+    
+
+<p>Last time, we made sure we could very easily create chile VMs. This time, we&rsquo;re going to start setting up servers and create a Forest and Domain.</p>
+
+<p><em>Also, a quick reminder: please don&rsquo;t copy and paste all of these commands. You won&rsquo;t learn them like you should if you do.</em></p>
+
+<p>Let&rsquo;s start with our first DC:</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">cd E<span style="border: 1px solid #FF0000">:</span>\Lab\scripts\
+.\<span style="color: #008000">New-ChildVM</span>.ps1 <span style="color: #BA2121">&quot;DC1&quot;</span>
+</pre></div>
+
+
+<figure >
+    
+        <img src="/images/2015-10-04%2020_30_13-Test1.png" />
+    
+    
+</figure>
+</p>
+
+<p>Go ahead and sign in. Remeber how we did a Server Core install? Well, that&rsquo;s why you don&rsquo;t have a desktop. This is going to be fun.</p>
+
+<p>First things first. Most of this can be done through <code>sconfig</code>, but we also want to know how to do it manually.</p>
+
+<p>Fix the time / timezone.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">timedate.cpl
+</pre></div>
+</p>
+
+<p>Rename the server to <code>DC1</code></p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">powershell <span style="color: #408080; font-style: italic">#remember, you start in a cmd window</span>
+<span style="color: #008000">Rename-Computer</span> DC1
+
+<span style="color: #408080; font-style: italic">#Also an acceptable answer:</span>
+netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>computername% /newname<span style="border: 1px solid #FF0000">:</span>DC1
+</pre></div>
+</p>
+
+<p>Go ahead and run <code>sconfig</code>. It has some interesting options. Might as well turn on Remote Desktop while you&rsquo;re in there.</p>
+
+<p><em>Note to self: this would be a good security policy to set.</em></p>
+
+<p>
+<figure >
+    
+        <img src="/images/2015-10-04%2020_58_49.png" />
+    
+    
+</figure>
+</p>
+
+<p>Go ahead and restart the server, either using <code>sconfig</code> or <code>shutdown -r -t 0</code>.</p>
+
+<h2 id="install-active-directory:5e0099ae13246dec541dc1a4949e1f92">Install Active Directory</h2>
+
+<p>All right, it&rsquo;s show time. Drop yourself into PowerShell on the server and run this.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools -Restart
+</pre></div>
+</p>
+
+<p>Now that the AD feature is installed, we can make a new Forest and Domain. I&rsquo;m going to use <code>Home.local</code> as my domain name.</p>
+
+<blockquote>
+<p>In a production environment, best practices state to make your active directory domain a subdomain of public domain that you own, like <code>ad.myawesomebusiness.com</code>. CA&rsquo;s will no longer sign certificates for fake domains (like *.local). You can, however, get a CA to sign a certificate for <code>exchangeserver.ad.myawesomebusiness.com</code>.</p>
+</blockquote>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-ADDSForest -DomainName Home.local -InstallDNS<span style="border: 1px solid #FF0000">:</span><span style="color: #19177C">$true</span>
+</pre></div>
+</p>
+
+<p>This will create a new Forst with a domain name <code>Home.local</code> and it will isntall a DNS server (which is crucial for AD to function).</p>
+
+<p>You will be asked for a Safe Mode password. Just make it one you&rsquo;ll remember. This is in case you need to go into Active Directory Restore mode or boot the domain controller into safe mode. Rmember, domain controllers do not have <em>any</em> local accounts.</p>
+
+<p>
+<figure >
+    
+        <img src="/images/2015-10-04%2021_14_50.png" />
+    
+    
+</figure>
+</p>
+
+<p>You will see some warnings. The DNS delegation one is nothing to worry about. The static IP one, however, is something we should talk about. You really want your AD and DNS servers to have static IPs. In fact, DNS can&rsquo;t function (for long) without it.</p>
+
+<p>
+<figure >
+    
+        <img src="/images/2015-10-25%2016_54_40-DC1.png" />
+    
+    
+</figure>
+</p>
+
+<p>When the server comes up, you&rsquo;ll notice that you are now signing in as <code>HOME\Administrator</code>. Login and we will change the IP address. I&rsquo;m going to assume you know <em>what</em> to set you IP address to, but here is how:</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-NetIPAddress</span> -IPAddress 192.168.2.110 -DefaultGateway 192.168.2.1 -PrefixLength 24 -InterfaceAlias Ethernet
+</pre></div>
+</p>
+
+<p>You can get the interface alias by running Get-NetAdapter. The standard home network is going to be on a <code>255.255.255.0</code> subnet mask, which is the equivalent of a <code>/24</code> network prefix length. If you don&rsquo;t understand this, you need to study up on subnetting. It will be on the exam.</p>
+
+<p>Now, we want to set the DNS servers on the server. Let&rsquo;s set one to the server itself (it&rsquo;s now a DNS server, afterall), and set the other to our router.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-DnsClientServerAddress</span> -InterfaceAlias Ethernet -ServerAddresses {192.168.2.110,192.168.2.1}
+</pre></div>
+</p>
+
+<p>A good ole <code>ipconfig /all</code> can confirm our changes.</p>
+
+<blockquote>
+<p>You could have changed all this through sconfig, but you don&rsquo;t need a tutorial for that!</p>
+</blockquote>
+
+<h2 id="add-a-second-dc:5e0099ae13246dec541dc1a4949e1f92">Add a Second DC</h2>
+
+<p>Let&rsquo;s add a second DC. From what we&rsquo;ve learned, go ahead and take these steps:</p>
+
+<ul>
+<li>Rename the server</li>
+<li>Enable Remote Desktop</li>
+<li>Set the time zone</li>
+<li>Set a static IP (I&rsquo;m setting mine to 192.168.2.111)</li>
+<li>Set the DNS servers, <strong>pointing one of them to DC1</strong></li>
+<li>Install the Active Directory Domain Services feature.</li>
+<li>Restart</li>
+</ul>
+
+<blockquote>
+<p>Don&rsquo;t use sconfig! (except for remote desktop). You&rsquo;ll have lots of chances to use it later.</p>
+</blockquote>
+
+<p>There is a reason that we set one of the DNS server to point to DC1. When you attempt to join a domain, the server will do a DNS lookup for the domain name (<code>Home.local</code>). You router will not have an entry for it, but DC1 does.</p>
+
+<p>Now, all that&rsquo;s left is to promote it as a domain controller.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-ADDSDomainController -DomainName Home.local -InstallDNS<span style="border: 1px solid #FF0000">:</span><span style="color: #19177C">$true</span>
+</pre></div>
+</p>
+
+<p>The server will restart, and you will have two functioning domain controllers! If you want to check on your domain controllers, run some of these commands.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic"># List DCs</span>
+netdom query dc
+
+<span style="color: #408080; font-style: italic"># Check FSMO roles</span>
+<span style="color: #008000">Get-ADDomain</span> | <span style="color: #008000">Select-Object</span> InfrastructureMaster, RIDMaster, PDCEmulator, DomainNamingMaster, SchemaMaster
+</pre></div>
+</p>
+
+<p>That&rsquo;s it for today. Next time, we are going to setup a utility server with (<strong>GASP</strong>) a GUI and all of the management tools. Note: It&rsquo;s important to know how to go from Core to Minimal to Full GUI installations.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "andrewaldrich";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "andrewaldrich";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55528711-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
+
