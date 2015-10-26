@@ -6,8 +6,162 @@
     <description>Recent content in Msexams on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Oct 2015 20:47:28 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2015 21:47:28 -0500</lastBuildDate>
     <atom:link href="http://andrewaldrich.com/msexams/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MCSA 70-410 Lab #4 - Install a GUI Utility Server</title>
+      <link>http://andrewaldrich.com/msexams/mcsa-70-410/lab-4/</link>
+      <pubDate>Sun, 25 Oct 2015 21:47:28 -0500</pubDate>
+      
+      <guid>http://andrewaldrich.com/msexams/mcsa-70-410/lab-4/</guid>
+      <description>
+
+&lt;p&gt;For the exam, it&amp;rsquo;s important to know how to convert between Core, Minimal Installation, and Full installation. We&amp;rsquo;re going to do some of that today. Our first subject will be a utility server. We can install all of the management tools on this one to manage the other servers.&lt;/p&gt;
+
+&lt;p&gt;The cool thing is that once we get this server running, we won&amp;rsquo;t need to start console sessions to any server we have already set up.&lt;/p&gt;
+
+&lt;p&gt;Looking back on the other lessons, complete the following steps. Try to do as much as possible from memory.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create a server named Util1&lt;/li&gt;
+&lt;li&gt;Rename&lt;/li&gt;
+&lt;li&gt;Set timezone&lt;/li&gt;
+&lt;li&gt;Set a static IP&lt;/li&gt;
+&lt;li&gt;Set the DNS servers, pointing to both DC1 and DC2&lt;/li&gt;
+&lt;li&gt;Reboot&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We haven&amp;rsquo;t gone over how to join the domain yet when you aren&amp;rsquo;t promoting to a DC. There are two main ways, the old and the new (PowerShell) way. I&amp;rsquo;m going with the new one.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;# Method &lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;:
+netdom join Util&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt; /domain:Home.local /userd:administrator /passwordd:**********
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Method 2:&lt;/span&gt;
+&lt;span style=&#34;color: #008000&#34;&gt;Add-Computer&lt;/span&gt; -ComputerName Util1 -DomainName Home.local
+
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# You can also specify the -NewName parameter to rename the computer and join the domain in one go.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you have problems with this, escpecially if it mentions that the domain could not be contacted, remember that any problem you have is DNS. &lt;a href=&#34;https://www.google.com/search?q=%22it%27s+always+dns%22&amp;amp;oq=%22it%27s+always+dns%22&amp;amp;aqs=chrome..69i57j0.3671j0j1&amp;amp;sourceid=chrome&amp;amp;es_sm=93&amp;amp;ie=UTF-8#q=site:reddit.com%2Fr%2Fsysadmin+%22it%27s+always+dns%22&#34;&gt;It&amp;rsquo;s always DNS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://i.imgur.com/YKvOiA4.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you have an issue, start with nslookup and ping, then go from there.&lt;/p&gt;
+
+&lt;h2 id=&#34;convert-server-core-to-full-install:91897a551ad0f7b8b0fc016ef97a9e34&#34;&gt;Convert Server Core to Full Install&lt;/h2&gt;
+
+&lt;p&gt;Like I said before, this is one you will definitely be quizzed on.&lt;/p&gt;
+
+&lt;p&gt;Server core is really small and it doesn&amp;rsquo;t store the GUI binaries &amp;ldquo;just in case&amp;rdquo;. That means we need to provide them from the DVD. Mount that ISO again.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-VM&lt;/span&gt; Util1 | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMDvdDrive&lt;/span&gt; -Path E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\iso\2012R2.ISO
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It probably mounted on &lt;code&gt;D:\&lt;/code&gt;, but you can check.
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-PSDrive&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;There is an install.wim file located at &lt;code&gt;D:\sources\install.wim&lt;/code&gt; that has all of the information we need. Most Windows install disks will have a couple of editions (like Standard and Datacenter) in two flavors (Core and Full). We need to know which edition we&amp;rsquo;re running.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-WindowsEdition&lt;/span&gt; -Online
+
+Edition &lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; ServerDatacenter
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# So I&amp;#39;m running Datacenter edition&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And now we need to know the index of Datacenter edition in the install.wim file.
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-WindowsImage&lt;/span&gt; -ImagePath D&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\sources\install.wim
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ImageIndex       : 1
+ImageName        : Windows Server 2012 R2 SERVERSTANDARDCORE
+ImageDescription : Windows Server 2012 R2 SERVERSTANDARDCORE
+ImageSize        : 7,460,086,466 bytes
+
+ImageIndex       : 2
+ImageName        : Windows Server 2012 R2 SERVERSTANDARD
+ImageDescription : Windows Server 2012 R2 SERVERSTANDARD
+ImageSize        : 13,068,096,479 bytes
+
+ImageIndex       : 3
+ImageName        : Windows Server 2012 R2 SERVERDATACENTERCORE
+ImageDescription : Windows Server 2012 R2 SERVERDATACENTERCORE
+ImageSize        : 7,457,614,120 bytes
+
+ImageIndex       : 4
+ImageName        : Windows Server 2012 R2 SERVERDATACENTER
+ImageDescription : Windows Server 2012 R2 SERVERDATACENTER
+ImageSize        : 13,067,663,813 bytes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So I need to target Index4, Datacenter full.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-WindowsFeature Server-Gui-Mgmt-Infra, Server-Gui-Shell -Restart -Source wim&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;D&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\sources\install.wim&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;4
+&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# The :4 at the end is the index&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If the server was originally a GUI server and you were converting &lt;em&gt;back&lt;/em&gt;, you would only have to run the second command and leave off the &lt;code&gt;-Source&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-25%2022_12_21-Util1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It will take a while, but once the server reboots you&amp;rsquo;re running in full GUI mode. Make sure to sign in as Home\Administrator.&lt;/p&gt;
+
+&lt;p&gt;Add both DCs to server manager and take a look. Our domain is coming along.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-25%2022_30_00-Util1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Finally, install the management tools. It&amp;rsquo;s simple.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-WindowsFeature RSAT
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This installs all available management tools so that we can manage any other server from this one. Try it! You can connect to AD, DNS, etc.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://andrewaldrich.com/images/2015-10-25%2022_36_51.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it for today. Next time we&amp;rsquo;ll&amp;hellip; I&amp;rsquo;m not sure yet. But we have plenty to do!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>MCSA 70-410 Lab #3 - Creating Child VMs</title>

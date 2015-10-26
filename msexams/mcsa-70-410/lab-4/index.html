@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>MCSA 70-410 Lab #4 - Install a GUI Utility Server &middot; Andrew Aldrich</title>
+
+  
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://andrewaldrich.com/css/hyde-x.css">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://andrewaldrich.com/touch-icon-144-precomposed.png">
+  <link href="http://andrewaldrich.com/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="author" href="http://plus.google.com/116239400181166659935">
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img src="/images/profile.jpg" alt="">
+      <h1>Andrew Aldrich</h1>
+      <p class="lead">My Journey to MCSE and Beyond</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/">Home</a></li>
+      <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
+      
+
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/about/">About Me</a></li>
+      
+
+      <li class="sidebar-nav-item"><a href="http://andrewaldrich.com/msexams/">Micorosft Exams</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      
+      
+      
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2015 <a href="http://andrewaldrich.com/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>MCSA 70-410 Lab #4 - Install a GUI Utility Server</h1>
+    <span class="post-date">Oct 25, 2015 &middot; 3 minute read &middot; <a href="http://andrewaldrich.com/msexams/mcsa-70-410/lab-4/#disqus_thread">Comments</a>
+    </span>
+    
+
+<p>For the exam, it&rsquo;s important to know how to convert between Core, Minimal Installation, and Full installation. We&rsquo;re going to do some of that today. Our first subject will be a utility server. We can install all of the management tools on this one to manage the other servers.</p>
+
+<p>The cool thing is that once we get this server running, we won&rsquo;t need to start console sessions to any server we have already set up.</p>
+
+<p>Looking back on the other lessons, complete the following steps. Try to do as much as possible from memory.</p>
+
+<ul>
+<li>Create a server named Util1</li>
+<li>Rename</li>
+<li>Set timezone</li>
+<li>Set a static IP</li>
+<li>Set the DNS servers, pointing to both DC1 and DC2</li>
+<li>Reboot</li>
+</ul>
+
+<p>We haven&rsquo;t gone over how to join the domain yet when you aren&rsquo;t promoting to a DC. There are two main ways, the old and the new (PowerShell) way. I&rsquo;m going with the new one.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"># Method <span style="color: #666666">1</span>:
+netdom join Util<span style="color: #666666">1</span> /domain:Home.local /userd:administrator /passwordd:**********
+</pre></div>
+</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic"># Method 2:</span>
+<span style="color: #008000">Add-Computer</span> -ComputerName Util1 -DomainName Home.local
+
+<span style="color: #408080; font-style: italic"># You can also specify the -NewName parameter to rename the computer and join the domain in one go.</span>
+</pre></div>
+</p>
+
+<p>If you have problems with this, escpecially if it mentions that the domain could not be contacted, remember that any problem you have is DNS. <a href="https://www.google.com/search?q=%22it%27s+always+dns%22&amp;oq=%22it%27s+always+dns%22&amp;aqs=chrome..69i57j0.3671j0j1&amp;sourceid=chrome&amp;es_sm=93&amp;ie=UTF-8#q=site:reddit.com%2Fr%2Fsysadmin+%22it%27s+always+dns%22">It&rsquo;s always DNS</a>.</p>
+
+<p>
+<figure >
+    
+        <img src="https://i.imgur.com/YKvOiA4.jpg" />
+    
+    
+</figure>
+</p>
+
+<p>If you have an issue, start with nslookup and ping, then go from there.</p>
+
+<h2 id="convert-server-core-to-full-install:91897a551ad0f7b8b0fc016ef97a9e34">Convert Server Core to Full Install</h2>
+
+<p>Like I said before, this is one you will definitely be quizzed on.</p>
+
+<p>Server core is really small and it doesn&rsquo;t store the GUI binaries &ldquo;just in case&rdquo;. That means we need to provide them from the DVD. Mount that ISO again.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Get-VM</span> Util1 | <span style="color: #008000">Add-VMDvdDrive</span> -Path E<span style="border: 1px solid #FF0000">:</span>\Lab\iso\2012R2.ISO
+</pre></div>
+</p>
+
+<p>It probably mounted on <code>D:\</code>, but you can check.
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Get-PSDrive</span>
+</pre></div>
+</p>
+
+<p>There is an install.wim file located at <code>D:\sources\install.wim</code> that has all of the information we need. Most Windows install disks will have a couple of editions (like Standard and Datacenter) in two flavors (Core and Full). We need to know which edition we&rsquo;re running.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Get-WindowsEdition</span> -Online
+
+Edition <span style="border: 1px solid #FF0000">:</span> ServerDatacenter
+<span style="color: #408080; font-style: italic"># So I&#39;m running Datacenter edition</span>
+</pre></div>
+</p>
+
+<p>And now we need to know the index of Datacenter edition in the install.wim file.
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Get-WindowsImage</span> -ImagePath D<span style="border: 1px solid #FF0000">:</span>\sources\install.wim
+</pre></div>
+</p>
+
+<pre><code>ImageIndex       : 1
+ImageName        : Windows Server 2012 R2 SERVERSTANDARDCORE
+ImageDescription : Windows Server 2012 R2 SERVERSTANDARDCORE
+ImageSize        : 7,460,086,466 bytes
+
+ImageIndex       : 2
+ImageName        : Windows Server 2012 R2 SERVERSTANDARD
+ImageDescription : Windows Server 2012 R2 SERVERSTANDARD
+ImageSize        : 13,068,096,479 bytes
+
+ImageIndex       : 3
+ImageName        : Windows Server 2012 R2 SERVERDATACENTERCORE
+ImageDescription : Windows Server 2012 R2 SERVERDATACENTERCORE
+ImageSize        : 7,457,614,120 bytes
+
+ImageIndex       : 4
+ImageName        : Windows Server 2012 R2 SERVERDATACENTER
+ImageDescription : Windows Server 2012 R2 SERVERDATACENTER
+ImageSize        : 13,067,663,813 bytes
+</code></pre>
+
+<p>So I need to target Index4, Datacenter full.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-WindowsFeature Server-Gui-Mgmt-Infra, Server-Gui-Shell -Restart -Source wim<span style="border: 1px solid #FF0000">:</span>D<span style="border: 1px solid #FF0000">:</span>\sources\install.wim<span style="border: 1px solid #FF0000">:</span>4
+<span style="color: #408080; font-style: italic"># The :4 at the end is the index</span>
+</pre></div>
+</p>
+
+<blockquote>
+<p>If the server was originally a GUI server and you were converting <em>back</em>, you would only have to run the second command and leave off the <code>-Source</code> parameter.</p>
+</blockquote>
+
+<p>
+<figure >
+    
+        <img src="/images/2015-10-25%2022_12_21-Util1.png" />
+    
+    
+</figure>
+</p>
+
+<p>It will take a while, but once the server reboots you&rsquo;re running in full GUI mode. Make sure to sign in as Home\Administrator.</p>
+
+<p>Add both DCs to server manager and take a look. Our domain is coming along.</p>
+
+<p>
+<figure >
+    
+        <img src="/images/2015-10-25%2022_30_00-Util1.png" />
+    
+    
+</figure>
+</p>
+
+<p>Finally, install the management tools. It&rsquo;s simple.</p>
+
+<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-WindowsFeature RSAT
+</pre></div>
+</p>
+
+<p>This installs all available management tools so that we can manage any other server from this one. Try it! You can connect to AD, DNS, etc.</p>
+
+<p>
+<figure >
+    
+        <img src="/images/2015-10-25%2022_36_51.png" />
+    
+    
+</figure>
+</p>
+
+<p>That&rsquo;s it for today. Next time we&rsquo;ll&hellip; I&rsquo;m not sure yet. But we have plenty to do!</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "andrewaldrich";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "andrewaldrich";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55528711-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
+
