@@ -434,6 +434,8 @@ At line:1 char:1
 &lt;/p&gt;
 
 &lt;p&gt;Once you get everything going to your liking, you&amp;rsquo;re done for this lesson! Next time, we&amp;rsquo;re going to start up our first Forest and Domain. You can also get rid of this VM.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-3&#34;&gt;MCSA 70-10 Lab #3&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -558,7 +560,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 &lt;p&gt;A good ole &lt;code&gt;ipconfig /all&lt;/code&gt; can confirm our changes.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;You could have changed all this through sconfig, but you don&amp;rsquo;t need a tutorial for that!&lt;/p&gt;
+&lt;p&gt;You could have changed all this through sconfig, but you don&amp;rsquo;t need a tutorial for that! The IP can also be set using &lt;code&gt;netsh interface IPv4&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&#34;add-a-second-dc:5e0099ae13246dec541dc1a4949e1f92&#34;&gt;Add a Second DC&lt;/h2&gt;
@@ -598,6 +600,8 @@ netdom query dc
 &lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it for today. Next time, we are going to setup a utility server with (&lt;strong&gt;GASP&lt;/strong&gt;) a GUI and all of the management tools. Note: It&amp;rsquo;s important to know how to go from Core to Minimal to Full GUI installations.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://andrewaldrich.com/msexams/mcsa-70-410/lab-4&#34;&gt;MCSA 70-10 Lab #4&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
