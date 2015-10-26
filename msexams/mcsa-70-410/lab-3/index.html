@@ -153,7 +153,7 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 </pre></div>
 </p>
 
-<p>This will create a new Forst with a domain name <code>Home.local</code> and it will isntall a DNS server (which is crucial for AD to function).</p>
+<p>This will create a new Forst with a domain name <code>Home.local</code> and it will install a DNS server (which is crucial for AD to function).</p>
 
 <p>You will be asked for a Safe Mode password. Just make it one you&rsquo;ll remember. This is in case you need to go into Active Directory Restore mode or boot the domain controller into safe mode. Rmember, domain controllers do not have <em>any</em> local accounts.</p>
 
@@ -185,7 +185,7 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 
 <p>You can get the interface alias by running Get-NetAdapter. The standard home network is going to be on a <code>255.255.255.0</code> subnet mask, which is the equivalent of a <code>/24</code> network prefix length. If you don&rsquo;t understand this, you need to study up on subnetting. It will be on the exam.</p>
 
-<p>Now, we want to set the DNS servers on the server. Let&rsquo;s set one to the server itself (it&rsquo;s now a DNS server, afterall), and set the other to our router.</p>
+<p>Now, we want to set the DNS servers on the server. Let&rsquo;s set one to the server itself (it&rsquo;s now a DNS server, after all), and set the other to our router.</p>
 
 <p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-DnsClientServerAddress</span> -InterfaceAlias Ethernet -ServerAddresses {192.168.2.110,192.168.2.1}
 </pre></div>

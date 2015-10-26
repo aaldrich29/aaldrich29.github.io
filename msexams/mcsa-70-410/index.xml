@@ -519,7 +519,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
-&lt;p&gt;This will create a new Forst with a domain name &lt;code&gt;Home.local&lt;/code&gt; and it will isntall a DNS server (which is crucial for AD to function).&lt;/p&gt;
+&lt;p&gt;This will create a new Forst with a domain name &lt;code&gt;Home.local&lt;/code&gt; and it will install a DNS server (which is crucial for AD to function).&lt;/p&gt;
 
 &lt;p&gt;You will be asked for a Safe Mode password. Just make it one you&amp;rsquo;ll remember. This is in case you need to go into Active Directory Restore mode or boot the domain controller into safe mode. Rmember, domain controllers do not have &lt;em&gt;any&lt;/em&gt; local accounts.&lt;/p&gt;
 
@@ -551,7 +551,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 
 &lt;p&gt;You can get the interface alias by running Get-NetAdapter. The standard home network is going to be on a &lt;code&gt;255.255.255.0&lt;/code&gt; subnet mask, which is the equivalent of a &lt;code&gt;/24&lt;/code&gt; network prefix length. If you don&amp;rsquo;t understand this, you need to study up on subnetting. It will be on the exam.&lt;/p&gt;
 
-&lt;p&gt;Now, we want to set the DNS servers on the server. Let&amp;rsquo;s set one to the server itself (it&amp;rsquo;s now a DNS server, afterall), and set the other to our router.&lt;/p&gt;
+&lt;p&gt;Now, we want to set the DNS servers on the server. Let&amp;rsquo;s set one to the server itself (it&amp;rsquo;s now a DNS server, after all), and set the other to our router.&lt;/p&gt;
 
 &lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-DnsClientServerAddress&lt;/span&gt; -InterfaceAlias Ethernet -ServerAddresses {192.168.2.110,192.168.2.1}
 &lt;/pre&gt;&lt;/div&gt;
@@ -642,7 +642,7 @@ netdom join Util&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt; /domai
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
-&lt;p&gt;If you have problems with this, escpecially if it mentions that the domain could not be contacted, remember that any problem you have is DNS. &lt;a href=&#34;https://www.google.com/search?q=%22it%27s+always+dns%22&amp;amp;oq=%22it%27s+always+dns%22&amp;amp;aqs=chrome..69i57j0.3671j0j1&amp;amp;sourceid=chrome&amp;amp;es_sm=93&amp;amp;ie=UTF-8#q=site:reddit.com%2Fr%2Fsysadmin+%22it%27s+always+dns%22&#34;&gt;It&amp;rsquo;s always DNS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have problems with this, especially if it mentions that the domain could not be contacted, remember that any problem you have is DNS. &lt;a href=&#34;https://www.google.com/search?q=%22it%27s+always+dns%22&amp;amp;oq=%22it%27s+always+dns%22&amp;amp;aqs=chrome..69i57j0.3671j0j1&amp;amp;sourceid=chrome&amp;amp;es_sm=93&amp;amp;ie=UTF-8#q=site:reddit.com%2Fr%2Fsysadmin+%22it%27s+always+dns%22&#34;&gt;It&amp;rsquo;s always DNS&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;
 &lt;figure &gt;
