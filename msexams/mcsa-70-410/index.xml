@@ -30,6 +30,8 @@
 &lt;li&gt;Server 2012 R2 iso (you should be able to sign up for a demo - no licenses needed)&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;If you&amp;rsquo;re looking for a new SSD, the &lt;a href=&#34;http://amzn.to/1kIMC22&#34;&gt;SanDisk Ultra II&lt;/a&gt; is very cost-effective. I transferred my C:\ drive here and used my smaller SSD as a dedicated lab drive.&lt;/p&gt;
+
 &lt;p&gt;I&amp;rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&amp;rsquo;s the only way they&amp;rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &amp;ldquo;Get-VM&amp;rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&amp;rsquo;ll probably learn something very interesting.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
