@@ -186,6 +186,7 @@ pre code {
 }
 .highlight pre {
   margin-bottom: 0;
+  background-color: transparent; /* Allow Highlights to set this*/
 }
 
 /* Gist via GitHub Pages */

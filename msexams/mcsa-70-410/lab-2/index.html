@@ -10,11 +10,11 @@
   <title>MCSA 70-410 Lab #2 - Creating Child VMs &middot; Andrew Aldrich</title>
 
   
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/poole.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/hyde.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/poole-overrides.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/hyde-overrides.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde-x.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -60,14 +60,14 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item"><a href="https://andrewaldrich.com/">Home</a></li>
+      <li class="sidebar-nav-item"><a href="http://localhost:1313/">Home</a></li>
       <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
       
 
-      <li class="sidebar-nav-item"><a href="https://andrewaldrich.com/about/">About Me</a></li>
+      <li class="sidebar-nav-item"><a href="http://localhost:1313/about/">About Me</a></li>
       
 
-      <li class="sidebar-nav-item"><a href="https://andrewaldrich.com/msexams/">Micorosft Exams</a></li>
+      <li class="sidebar-nav-item"><a href="http://localhost:1313/msexams/">Micorosft Exams</a></li>
       
     </ul>
 
@@ -86,7 +86,7 @@
 
     
 
-    <p>Copyright &copy; 2015 <a href="https://andrewaldrich.com/license/">License</a><br/>
+    <p>Copyright &copy; 2015 <a href="http://localhost:1313/license/">License</a><br/>
        Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
   </div>
 </div>
@@ -95,7 +95,7 @@
 <div class="content container">
   <div class="post">
     <h1>MCSA 70-410 Lab #2 - Creating Child VMs</h1>
-    <span class="post-date">Oct 5, 2015 &middot; 3 minute read &middot; <a href="https://andrewaldrich.com/msexams/mcsa-70-410/lab-2/#disqus_thread">Comments</a>
+    <span class="post-date">Oct 5, 2015 &middot; 3 minute read &middot; <a href="http://localhost:1313/msexams/mcsa-70-410/lab-2/#disqus_thread">Comments</a>
     </span>
     
 
@@ -103,61 +103,62 @@
 
 <p>First, a note. I moved my Parent.vhdx to the root of my lab folder to keep it separate from all of the VMs we&rsquo;re going to make. It looks like this:</p>
 
-<pre><code>PS E:\&gt; tree /F
-Folder PATH listing for volume SSD
-Volume serial number is 20B9-6EE9
-E:.
-└───Lab
-    │   Parent.vhdx
-    │
-    ├───iso
-    │       2012R2.ISO
-    │       Windows10Pro64.iso
-    │       Windows7Pro64SP1.iso
-    │
-    ├───scripts
-    │       Create-Lab.ps1
-    │       New-ChildVM.ps1
-    │
-    └───VM
-</code></pre>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">PS</span> <span style="color: #ffffff">E:\&gt;</span> <span style="color: #ffffff">tree</span> <span style="color: #ffffff">/F</span>
+<span style="color: #ffffff">Folder</span> <span style="color: #ffffff">PATH</span> <span style="color: #ffffff">listing</span> <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">volume</span> <span style="color: #ffffff">SSD</span>
+<span style="color: #ffffff">Volume</span> <span style="color: #ffffff">serial</span> <span style="color: #ffffff">number</span> <span style="color: #ffffff">is</span> <span style="color: #ffffff">20B9-6EE9</span>
+<span style="color: #ffffff">E:.</span>
+<span style="color: #ffffff">└───Lab</span>
+    <span style="color: #ffffff">│</span>   <span style="color: #ffffff">Parent.vhdx</span>
+    <span style="color: #ffffff">│</span>
+    <span style="color: #ffffff">├───iso</span>
+    <span style="color: #ffffff">│</span>       <span style="color: #ffffff">2012R2.ISO</span>
+    <span style="color: #ffffff">│</span>       <span style="color: #ffffff">Windows10Pro64.iso</span>
+    <span style="color: #ffffff">│</span>       <span style="color: #ffffff">Windows7Pro64SP1.iso</span>
+    <span style="color: #ffffff">│</span>
+    <span style="color: #ffffff">├───scripts</span>
+    <span style="color: #ffffff">│</span>       <span style="color: #ffffff">Create-Lab.ps1</span>
+    <span style="color: #ffffff">│</span>       <span style="color: #ffffff">New-ChildVM.ps1</span>
+    <span style="color: #ffffff">│</span>
+    <span style="color: #ffffff">└───VM</span>
+</pre></div>
+</p>
 
 <p>Without further ado, let&rsquo;s get started.</p>
 
-<h2 id="having-a-baby-server:513d37374c47a2cd3087647afb3c4245">Having a Baby Server</h2>
+<h2 id="makin-a-baby-server:513d37374c47a2cd3087647afb3c4245">Makin&rsquo; a Baby Server</h2>
 
 <p>Let&rsquo;s create the first one manually. Just to review, we&rsquo;ll simply create a new VM with a Child differencing disk, boot it up, and we&rsquo;re done. Let&rsquo;s call the new VM <code>Test1</code> for now.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> = <span style="color: #008000">New-VM</span> -Name <span style="color: #BA2121">&quot;Test1&quot;</span> -Generation 2
-<span style="color: #408080; font-style: italic"># Save the VM object in $vm for later use</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">New-VM</span> <span style="color: #ffffff">-Name</span> <span style="color: #0086d2">&quot;Test1&quot;</span> <span style="color: #ffffff">-Generation</span> <span style="color: #ffffff">2</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f"># Save the VM object in $vm for later use</span>
 </pre></div>
 </p>
 
 <p>Now, let&rsquo;s go ahead and attach the network adapter to our &ldquo;Wired&rdquo; network.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMNetworkAdapter</span> | <span style="color: #008000">Connect-VMNetworkAdapter</span> -SwitchName <span style="color: #BA2121">&quot;Wired&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMNetworkAdapter</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Connect-VMNetworkAdapter</span> <span style="color: #ffffff">-SwitchName</span> <span style="color: #0086d2">&quot;Wired&quot;</span>
 </pre></div>
 </p>
 
 <p>Here&rsquo;s the fun part: differencing disks.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VHD</span> -Path <span style="color: #BA2121">&quot;E:\Lab\VM\Test1.vhdx&quot;</span> -SizeBytes 40gb -ParentPath <span style="color: #BA2121">&quot;E:\Lab\Parent.vhdx&quot;</span> -Differencing
-<span style="color: #408080; font-style: italic"># Notice the -Differencing switch.</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">New-VHD</span> <span style="color: #ffffff">-Path</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Test1.vhdx&quot;</span> <span style="color: #ffffff">-SizeBytes</span> <span style="color: #ffffff">40gb</span> <span style="color: #ffffff">-ParentPath</span> <span style="color: #0086d2">&quot;E:\Lab\Parent.vhdx&quot;</span> <span style="color: #ffffff">-Differencing</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f"># Notice the -Differencing switch.</span>
 
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Add-VMHardDiskDrive</span> -Path <span style="color: #BA2121">&quot;E:\Lab\VM\Test1.vhdx&quot;</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Add-VMHardDiskDrive</span> <span style="color: #ffffff">-Path</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Test1.vhdx&quot;</span>
 </pre></div>
 </p>
 
 <p>And finally, let&rsquo;s set the VHD as the default startup item. This avoids the wait for PXE boot.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$hdd</span> = <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMHardDiskDrive</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$hdd</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$hdd</span> <span style="color: #ffffff">=</span> <span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMHardDiskDrive</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Set-VMFirmware</span> <span style="color: #ffffff">-FirstBootDevice</span> <span style="color: #fb660a">$hdd</span>
 </pre></div>
 </p>
 
 <p>Start it up!</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Start-VM</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Start-VM</span>
 </pre></div>
 </p>
 
@@ -172,72 +173,73 @@ E:.
 
 Look at how easy that is! Install time of &lt; 30 seconds. Great! Now get rid of it.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Stop-VM</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Remove-VM</span>
-<span style="color: #008000">Remove-Item</span> E<span style="border: 1px solid #FF0000">:</span>\Lab\VM\Test1.vhdx
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Stop-VM</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Remove-VM</span>
+<span style="color: #ffffff">Remove-Item</span> <span style="color: #ffffff">E:\Lab\VM\Test1.vhdx</span>
 </pre></div>
 </p>
 
 <p>Like all things you&rsquo;re going to do over and over again, this should be stored as a script. Here&rsquo;s mine. Customize it or make your own to your liking.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic"># New-ChildVM.ps1</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f"># New-ChildVM.ps1</span>
 
-<span style="color: #008000; font-weight: bold">Param</span>(
-  <span style="color: #880000">[string]</span><span style="color: #19177C">$vmname</span>
-)
+<span style="color: #fb660a; font-weight: bold">Param</span><span style="color: #ffffff">(</span>
+  <span style="color: #0086d2">[string]</span><span style="color: #fb660a">$vmname</span>
+<span style="color: #ffffff">)</span>
 
-<span style="color: #008000; font-weight: bold">if</span>(!<span style="color: #19177C">$vmname</span>){<span style="color: #19177C">$vmname</span>= <span style="color: #008000">Read-Host</span> <span style="color: #BA2121">&quot;New VM Name&quot;</span>}
-<span style="color: #19177C">$vmpath</span>=<span style="color: #BA2121">&quot;E:\Lab\VM&quot;</span>
-<span style="color: #19177C">$parentVhd</span> = <span style="color: #BA2121">&quot;E:\Lab\Parent.vhdx&quot;</span>
+<span style="color: #fb660a; font-weight: bold">if</span><span style="color: #ffffff">(!</span><span style="color: #fb660a">$vmname</span><span style="color: #ffffff">){</span><span style="color: #fb660a">$vmname</span><span style="color: #ffffff">=</span> <span style="color: #ffffff">Read-Host</span> <span style="color: #0086d2">&quot;New VM Name&quot;</span><span style="color: #ffffff">}</span>
+<span style="color: #fb660a">$vmpath</span><span style="color: #ffffff">=</span><span style="color: #0086d2">&quot;E:\Lab\VM&quot;</span>
+<span style="color: #fb660a">$parentVhd</span> <span style="color: #ffffff">=</span> <span style="color: #0086d2">&quot;E:\Lab\Parent.vhdx&quot;</span>
 
-<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Creating VM $vmname&quot;</span>
-<span style="color: #19177C">$vm</span> = <span style="color: #008000">New-VM</span> -Name <span style="color: #19177C">$vmname</span> -Generation 2
+<span style="color: #ffffff">Write-Host</span> <span style="color: #0086d2">&quot;Creating VM $vmname&quot;</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">New-VM</span> <span style="color: #ffffff">-Name</span> <span style="color: #fb660a">$vmname</span> <span style="color: #ffffff">-Generation</span> <span style="color: #ffffff">2</span>
 
-<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Connecting Network adapter to VMSwitch&quot;</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMNetworkAdapter</span> | <span style="color: #008000">Connect-VMNetworkAdapter</span> -SwitchName <span style="color: #BA2121">&quot;Wired&quot;</span>
+<span style="color: #ffffff">Write-Host</span> <span style="color: #0086d2">&quot;Connecting Network adapter to VMSwitch&quot;</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMNetworkAdapter</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Connect-VMNetworkAdapter</span> <span style="color: #ffffff">-SwitchName</span> <span style="color: #0086d2">&quot;Wired&quot;</span>
 
-<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Creating Child Differencing Disk and adding to VM&quot;</span>
-<span style="color: #008000">New-VHD</span> -Path <span style="color: #BA2121">&quot;$vmpath\$vmname.vhdx&quot;</span> -SizeBytes 40gb -ParentPath <span style="color: #19177C">$parentVhd</span> -Differencing
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Add-VMHardDiskDrive</span> -Path <span style="color: #BA2121">&quot;$vmpath\$vmname.vhdx&quot;</span>
+<span style="color: #ffffff">Write-Host</span> <span style="color: #0086d2">&quot;Creating Child Differencing Disk and adding to VM&quot;</span>
+<span style="color: #ffffff">New-VHD</span> <span style="color: #ffffff">-Path</span> <span style="color: #0086d2">&quot;$vmpath\$vmname.vhdx&quot;</span> <span style="color: #ffffff">-SizeBytes</span> <span style="color: #ffffff">40gb</span> <span style="color: #ffffff">-ParentPath</span> <span style="color: #fb660a">$parentVhd</span> <span style="color: #ffffff">-Differencing</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Add-VMHardDiskDrive</span> <span style="color: #ffffff">-Path</span> <span style="color: #0086d2">&quot;$vmpath\$vmname.vhdx&quot;</span>
 
-<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Setting as Boot Device&quot;</span>
-<span style="color: #19177C">$hdd</span> = <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMHardDiskDrive</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$hdd</span>
+<span style="color: #ffffff">Write-Host</span> <span style="color: #0086d2">&quot;Setting as Boot Device&quot;</span>
+<span style="color: #fb660a">$hdd</span> <span style="color: #ffffff">=</span> <span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMHardDiskDrive</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Set-VMFirmware</span> <span style="color: #ffffff">-FirstBootDevice</span> <span style="color: #fb660a">$hdd</span>
 
 
-<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Starting $vmname&quot;</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Start-VM</span>
+<span style="color: #ffffff">Write-Host</span> <span style="color: #0086d2">&quot;Starting $vmname&quot;</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Start-VM</span>
 
-<span style="color: #008000">Write-Host</span> <span style="color: #BA2121">&quot;Enjoy your new VM&quot;</span>
+<span style="color: #ffffff">Write-Host</span> <span style="color: #0086d2">&quot;Enjoy your new VM&quot;</span>
 </pre></div>
 </p>
 
 <p>Mine&rsquo;s saved as <code>New-ChildVM.ps1</code>. All I have to do it is CD to the directory and run it. Remember, in PowerShell, you can only execute something in the current directory if it&rsquo;s prefixed with <code>.\</code> (which stands for the current directory).</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">cd E<span style="border: 1px solid #FF0000">:</span>\Lab\scripts\
-.\<span style="color: #008000">New-ChildVM</span>.ps1 <span style="color: #BA2121">&quot;Test2&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">cd</span> <span style="color: #ffffff">E:\Lab\scripts\</span>
+<span style="color: #ffffff">.\New-ChildVM.ps1</span> <span style="color: #0086d2">&quot;Test2&quot;</span>
 </pre></div>
 </p>
 
 <p>And if you get something like this&hellip;</p>
 
-<pre><code>PS E:\Lab\scripts&gt; .\New-ChildVM.ps1 &quot;Test2&quot;
-.\New-ChildVM.ps1 : File E:\Lab\scripts\New-ChildVM.ps1 cannot be loaded because running scripts is disabled on this
-system. For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.
-At line:1 char:1
-+ .\New-ChildVM.ps1 &quot;Test2&quot;
-+ ~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
-    + FullyQualifiedErrorId : UnauthorizedAccess
-</code></pre>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">PS</span> <span style="color: #ffffff">E:\Lab\scripts&gt;</span> <span style="color: #ffffff">.\New-ChildVM.ps1</span> <span style="color: #0086d2">&quot;Test2&quot;</span>
+<span style="color: #ffffff">.\New-ChildVM.ps1</span> <span style="color: #ffffff">:</span> <span style="color: #ffffff">File</span> <span style="color: #ffffff">E:\Lab\scripts\New-ChildVM.ps1</span> <span style="color: #ffffff">cannot</span> <span style="color: #ffffff">be</span> <span style="color: #ffffff">loaded</span> <span style="color: #ffffff">because</span> <span style="color: #ffffff">running</span> <span style="color: #ffffff">scripts</span> <span style="color: #ffffff">is</span> <span style="color: #ffffff">disabled</span> <span style="color: #ffffff">on</span> <span style="color: #ffffff">this</span>
+<span style="color: #ffffff">system.</span> <span style="color: #fb660a; font-weight: bold">For</span> <span style="color: #ffffff">more</span> <span style="color: #ffffff">information,</span> <span style="color: #ffffff">see</span> <span style="color: #ffffff">about_Execution_Policies</span> <span style="color: #ffffff">at</span> <span style="color: #ffffff">http://go.microsoft.com/fwlink/</span><span style="color: #fb660a; font-weight: bold">?</span><span style="color: #ffffff">LinkID=135170.</span>
+<span style="color: #ffffff">At</span> <span style="color: #ffffff">line:1</span> <span style="color: #ffffff">char:1</span>
+<span style="color: #ffffff">+</span> <span style="color: #ffffff">.\New-ChildVM.ps1</span> <span style="color: #0086d2">&quot;Test2&quot;</span>
+<span style="color: #ffffff">+</span> <span style="color: #ffffff">~~~~~~~~~~~~~~~~~</span>
+    <span style="color: #ffffff">+</span> <span style="color: #ffffff">CategoryInfo</span>          <span style="color: #ffffff">:</span> <span style="color: #ffffff">SecurityError:</span> <span style="color: #ffffff">(:)</span> <span style="color: #ffffff">[],</span> <span style="color: #ffffff">PSSecurityException</span>
+    <span style="color: #ffffff">+</span> <span style="color: #ffffff">FullyQualifiedErrorId</span> <span style="color: #ffffff">:</span> <span style="color: #ffffff">UnauthorizedAccess</span>
+</pre></div>
+</p>
 
 <p>You have to run this&hellip;
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-ExecutionPolicy</span> Unrestricted
+<div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Set-ExecutionPolicy</span> <span style="color: #ffffff">Unrestricted</span>
 </pre></div>
 </p>
 
 <p>And you can try again now.
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">.\<span style="color: #008000">New-ChildVM</span>.ps1 <span style="color: #BA2121">&quot;Test2&quot;</span>
+<div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">.\New-ChildVM.ps1</span> <span style="color: #0086d2">&quot;Test2&quot;</span>
 </pre></div>
 </p>
 

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mcsa 70 410 on Andrew Aldrich</title>
-    <link>https://andrewaldrich.com/msexams/mcsa-70-410/</link>
+    <link>http://localhost:1313/msexams/mcsa-70-410/</link>
     <description>Recent content in Mcsa 70 410 on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 25 Oct 2015 21:47:28 -0500</lastBuildDate>
-    <atom:link href="https://andrewaldrich.com/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MCSA 70-410 Lab #0 - Intro</title>
-      <link>https://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</link>
+      <link>http://localhost:1313/msexams/mcsa-70-410/lab-0/</link>
       <pubDate>Thu, 01 Oct 2015 10:08:12 -0500</pubDate>
       
-      <guid>https://andrewaldrich.com/msexams/mcsa-70-410/lab-0/</guid>
+      <guid>http://localhost:1313/msexams/mcsa-70-410/lab-0/</guid>
       <description>&lt;p&gt;Today we will look at setting up a lab to study for the MCSA 70-410 exam. This lab is in no way meant to replace other methods of study, like books and training videos, but to supplement them. The first time I took the 70-410 exam, the PowerShell kicked my butt. Now, I know how to use PowerShell. I really enjoy automating day-to-day tasks in PowerShell. &lt;em&gt;However&lt;/em&gt;, I did not know all of the commands associated with Active Directory, Windows Features, Group Policy, Firewall, Storage, DNS, DHCP, etc., as well as I thought.&lt;/p&gt;
 
 &lt;p&gt;It turns out, just reading books and watching videos didn&amp;rsquo;t quite do it for me. That is the purpose of this lab: to do everything we can think of that could possibly be covered in this exam in PowerShell.&lt;/p&gt;
@@ -34,16 +34,16 @@
 
 &lt;p&gt;I&amp;rsquo;m going to list a lot of complete PowerShell commands, but I strongly suggest you type them out instead of copying them. That&amp;rsquo;s the only way they&amp;rsquo;ll stick. In fact, after you start typing a command in PowerShell, like &amp;ldquo;Get-VM&amp;rdquo;, type a space, then a dash, and then start hitting the tab key. That will cycle through all of the parameters of the command and you&amp;rsquo;ll probably learn something very interesting.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-1&#34;&gt;MCSA 70-10 Lab #1&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>MCSA 70-410 Lab #1 - Setting up the Lab</title>
-      <link>https://andrewaldrich.com/msexams/mcsa-70-410/lab-1/</link>
+      <link>http://localhost:1313/msexams/mcsa-70-410/lab-1/</link>
       <pubDate>Fri, 02 Oct 2015 10:00:12 -0500</pubDate>
       
-      <guid>https://andrewaldrich.com/msexams/mcsa-70-410/lab-1/</guid>
+      <guid>http://localhost:1313/msexams/mcsa-70-410/lab-1/</guid>
       <description>
 
 &lt;h2 id=&#34;the-technology:8bd1bf82bb668bb452ca3d0d6b4e19bc&#34;&gt;The Technology&lt;/h2&gt;
@@ -155,7 +155,7 @@ Running
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-02%2008_18_02-Hyper-V%20Manager.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-02%2008_18_02-Hyper-V%20Manager.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -227,7 +227,7 @@ Name                      InterfaceDescription                    ifIndex Status
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-02%2008_16_36-Start.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-02%2008_16_36-Start.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -247,7 +247,7 @@ sysprep.exe
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-02%2009_05_54-Start.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-02%2009_05_54-Start.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -281,77 +281,78 @@ Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Pare
 
 &lt;p&gt;We&amp;rsquo;re all done for today. In the next post, we&amp;rsquo;ll make a simple script to bring up new VMs in a single command!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-2&#34;&gt;MCSA 70-10 Lab #2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-2&#34;&gt;MCSA 70-10 Lab #2&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>MCSA 70-410 Lab #2 - Creating Child VMs</title>
-      <link>https://andrewaldrich.com/msexams/mcsa-70-410/lab-2/</link>
+      <link>http://localhost:1313/msexams/mcsa-70-410/lab-2/</link>
       <pubDate>Mon, 05 Oct 2015 10:00:12 -0500</pubDate>
       
-      <guid>https://andrewaldrich.com/msexams/mcsa-70-410/lab-2/</guid>
+      <guid>http://localhost:1313/msexams/mcsa-70-410/lab-2/</guid>
       <description>
 
-&lt;p&gt;Today, we&amp;rsquo;re going to start creating some child VMs! &lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-1/&#34;&gt;Last time&lt;/a&gt;, we did the hard work of creating a parent VHD. This time, we&amp;rsquo;re going to create a child VM and put it all in a script so that it only takes a few seconds to spin up another VM.&lt;/p&gt;
+&lt;p&gt;Today, we&amp;rsquo;re going to start creating some child VMs! &lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-1/&#34;&gt;Last time&lt;/a&gt;, we did the hard work of creating a parent VHD. This time, we&amp;rsquo;re going to create a child VM and put it all in a script so that it only takes a few seconds to spin up another VM.&lt;/p&gt;
 
 &lt;p&gt;First, a note. I moved my Parent.vhdx to the root of my lab folder to keep it separate from all of the VMs we&amp;rsquo;re going to make. It looks like this:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;PS E:\&amp;gt; tree /F
-Folder PATH listing for volume SSD
-Volume serial number is 20B9-6EE9
-E:.
-└───Lab
-    │   Parent.vhdx
-    │
-    ├───iso
-    │       2012R2.ISO
-    │       Windows10Pro64.iso
-    │       Windows7Pro64SP1.iso
-    │
-    ├───scripts
-    │       Create-Lab.ps1
-    │       New-ChildVM.ps1
-    │
-    └───VM
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;PS&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;tree&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;/F&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Folder&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;PATH&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;listing&lt;/span&gt; &lt;span style=&#34;color: #fb660a; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;volume&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SSD&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Volume&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;serial&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;number&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;20B9-6EE9&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;E:.&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;└───Lab&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;Parent.vhdx&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;├───iso&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;2012R2.ISO&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;Windows10Pro64.iso&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;Windows7Pro64SP1.iso&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;├───scripts&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;Create-Lab.ps1&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;New-ChildVM.ps1&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;│&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;└───VM&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;Without further ado, let&amp;rsquo;s get started.&lt;/p&gt;
 
-&lt;h2 id=&#34;having-a-baby-server:513d37374c47a2cd3087647afb3c4245&#34;&gt;Having a Baby Server&lt;/h2&gt;
+&lt;h2 id=&#34;makin-a-baby-server:513d37374c47a2cd3087647afb3c4245&#34;&gt;Makin&amp;rsquo; a Baby Server&lt;/h2&gt;
 
 &lt;p&gt;Let&amp;rsquo;s create the first one manually. Just to review, we&amp;rsquo;ll simply create a new VM with a Child differencing disk, boot it up, and we&amp;rsquo;re done. Let&amp;rsquo;s call the new VM &lt;code&gt;Test1&lt;/code&gt; for now.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; = &lt;span style=&#34;color: #008000&#34;&gt;New-VM&lt;/span&gt; -Name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Test1&amp;quot;&lt;/span&gt; -Generation 2
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Save the VM object in $vm for later use&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;New-VM&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Name&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Test1&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Generation&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Save the VM object in $vm for later use&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Now, let&amp;rsquo;s go ahead and attach the network adapter to our &amp;ldquo;Wired&amp;rdquo; network.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; -SwitchName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-SwitchName&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s the fun part: differencing disks.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VHD&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Test1.vhdx&amp;quot;&lt;/span&gt; -SizeBytes 40gb -ParentPath &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\Parent.vhdx&amp;quot;&lt;/span&gt; -Differencing
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Notice the -Differencing switch.&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;New-VHD&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Test1.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-SizeBytes&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;40gb&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ParentPath&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\Parent.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Differencing&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Notice the -Differencing switch.&lt;/span&gt;
 
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Test1.vhdx&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Test1.vhdx&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;And finally, let&amp;rsquo;s set the VHD as the default startup item. This avoids the wait for PXE boot.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt; = &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$hdd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Set-VMFirmware&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-FirstBootDevice&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$hdd&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Start it up!&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Start-VM&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Start-VM&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -359,94 +360,95 @@ E:.
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-04%2020_30_13-Test1.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-04%2020_30_13-Test1.png&#34; /&gt;
     
     
 &lt;/figure&gt;
 
 Look at how easy that is! Install time of &amp;lt; 30 seconds. Great! Now get rid of it.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Stop-VM&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Remove-VM&lt;/span&gt;
-&lt;span style=&#34;color: #008000&#34;&gt;Remove-Item&lt;/span&gt; E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\VM\Test1.vhdx
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Stop-VM&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Remove-VM&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Remove-Item&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Test1.vhdx&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Like all things you&amp;rsquo;re going to do over and over again, this should be stored as a script. Here&amp;rsquo;s mine. Customize it or make your own to your liking.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# New-ChildVM.ps1&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# New-ChildVM.ps1&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;Param&lt;/span&gt;(
-  &lt;span style=&#34;color: #880000&#34;&gt;[string]&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt;
-)
+&lt;span style=&#34;color: #fb660a; font-weight: bold&#34;&gt;Param&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;(&lt;/span&gt;
+  &lt;span style=&#34;color: #0086d2&#34;&gt;[string]&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vmname&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;)&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;if&lt;/span&gt;(!&lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt;){&lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt;= &lt;span style=&#34;color: #008000&#34;&gt;Read-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;New VM Name&amp;quot;&lt;/span&gt;}
-&lt;span style=&#34;color: #19177C&#34;&gt;$vmpath&lt;/span&gt;=&lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$parentVhd&lt;/span&gt; = &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\Parent.vhdx&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a; font-weight: bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;(!&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vmname&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;){&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vmname&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Read-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;New VM Name&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vmpath&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$parentVhd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\Parent.vhdx&amp;quot;&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Creating VM $vmname&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; = &lt;span style=&#34;color: #008000&#34;&gt;New-VM&lt;/span&gt; -Name &lt;span style=&#34;color: #19177C&#34;&gt;$vmname&lt;/span&gt; -Generation 2
+&lt;span style=&#34;color: #ffffff&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Creating VM $vmname&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;New-VM&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Name&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vmname&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Generation&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Connecting Network adapter to VMSwitch&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; -SwitchName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Connecting Network adapter to VMSwitch&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-SwitchName&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Creating Child Differencing Disk and adding to VM&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #008000&#34;&gt;New-VHD&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;$vmpath\$vmname.vhdx&amp;quot;&lt;/span&gt; -SizeBytes 40gb -ParentPath &lt;span style=&#34;color: #19177C&#34;&gt;$parentVhd&lt;/span&gt; -Differencing
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;$vmpath\$vmname.vhdx&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Creating Child Differencing Disk and adding to VM&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;New-VHD&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;$vmpath\$vmname.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-SizeBytes&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;40gb&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ParentPath&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$parentVhd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Differencing&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;$vmpath\$vmname.vhdx&amp;quot;&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Setting as Boot Device&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt; = &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Setting as Boot Device&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$hdd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Set-VMFirmware&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-FirstBootDevice&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$hdd&lt;/span&gt;
 
 
-&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Starting $vmname&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Start-VM&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Starting $vmname&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Start-VM&lt;/span&gt;
 
-&lt;span style=&#34;color: #008000&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Enjoy your new VM&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Write-Host&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Enjoy your new VM&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Mine&amp;rsquo;s saved as &lt;code&gt;New-ChildVM.ps1&lt;/code&gt;. All I have to do it is CD to the directory and run it. Remember, in PowerShell, you can only execute something in the current directory if it&amp;rsquo;s prefixed with &lt;code&gt;.\&lt;/code&gt; (which stands for the current directory).&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cd E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\scripts\
-.\&lt;span style=&#34;color: #008000&#34;&gt;New-ChildVM&lt;/span&gt;.ps1 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\scripts\&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;And if you get something like this&amp;hellip;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;PS E:\Lab\scripts&amp;gt; .\New-ChildVM.ps1 &amp;quot;Test2&amp;quot;
-.\New-ChildVM.ps1 : File E:\Lab\scripts\New-ChildVM.ps1 cannot be loaded because running scripts is disabled on this
-system. For more information, see about_Execution_Policies at http://go.microsoft.com/fwlink/?LinkID=135170.
-At line:1 char:1
-+ .\New-ChildVM.ps1 &amp;quot;Test2&amp;quot;
-+ ~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
-    + FullyQualifiedErrorId : UnauthorizedAccess
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;PS&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\scripts&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;File&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\scripts\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;cannot&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;be&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;loaded&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;because&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;running&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;scripts&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;disabled&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;on&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;this&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;system.&lt;/span&gt; &lt;span style=&#34;color: #fb660a; font-weight: bold&#34;&gt;For&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;more&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;information,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;see&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;about_Execution_Policies&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;http://go.microsoft.com/fwlink/&lt;/span&gt;&lt;span style=&#34;color: #fb660a; font-weight: bold&#34;&gt;?&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;LinkID=135170.&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;At&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;line:1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;char:1&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;~~~~~~~~~~~~~~~~~&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;CategoryInfo&lt;/span&gt;          &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SecurityError:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;(:)&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;[],&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;PSSecurityException&lt;/span&gt;
+    &lt;span style=&#34;color: #ffffff&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;FullyQualifiedErrorId&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;UnauthorizedAccess&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
 
 &lt;p&gt;You have to run this&amp;hellip;
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-ExecutionPolicy&lt;/span&gt; Unrestricted
+&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Set-ExecutionPolicy&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Unrestricted&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;And you can try again now.
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;.\&lt;span style=&#34;color: #008000&#34;&gt;New-ChildVM&lt;/span&gt;.ps1 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Test2&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Once you get everything going to your liking, you&amp;rsquo;re done for this lesson! Next time, we&amp;rsquo;re going to start up our first Forest and Domain. You can also get rid of this VM.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-3&#34;&gt;MCSA 70-10 Lab #3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-3&#34;&gt;MCSA 70-10 Lab #3&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>MCSA 70-410 Lab #3 - Creating Child VMs</title>
-      <link>https://andrewaldrich.com/msexams/mcsa-70-410/lab-3/</link>
+      <link>http://localhost:1313/msexams/mcsa-70-410/lab-3/</link>
       <pubDate>Sun, 25 Oct 2015 20:47:28 -0500</pubDate>
       
-      <guid>https://andrewaldrich.com/msexams/mcsa-70-410/lab-3/</guid>
+      <guid>http://localhost:1313/msexams/mcsa-70-410/lab-3/</guid>
       <description>
 
 &lt;p&gt;Last time, we made sure we could very easily create chile VMs. This time, we&amp;rsquo;re going to start setting up servers and create a Forest and Domain.&lt;/p&gt;
@@ -455,14 +457,14 @@ At line:1 char:1
 
 &lt;p&gt;Let&amp;rsquo;s start with our first DC:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cd E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\scripts\
-.\&lt;span style=&#34;color: #008000&#34;&gt;New-ChildVM&lt;/span&gt;.ps1 &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;DC1&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\scripts\&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;DC1&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-04%2020_30_13-Test1.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-04%2020_30_13-Test1.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -474,17 +476,17 @@ At line:1 char:1
 
 &lt;p&gt;Fix the time / timezone.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;timedate.cpl
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;timedate.cpl&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Rename the server to &lt;code&gt;DC1&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;powershell &lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#remember, you start in a cmd window&lt;/span&gt;
-&lt;span style=&#34;color: #008000&#34;&gt;Rename-Computer&lt;/span&gt; DC1
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;powershell&lt;/span&gt; &lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;#remember, you start in a cmd window&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Rename-Computer&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;DC1&lt;/span&gt;
 
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;#Also an acceptable answer:&lt;/span&gt;
-netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;&gt;%&lt;/span&gt;computername% /newname&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;DC1
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;#Also an acceptable answer:&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;netdom&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;renamecomputer&lt;/span&gt; &lt;span style=&#34;color: #fb660a; font-weight: bold&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;computername%&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;/newname:DC1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -495,7 +497,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-04%2020_58_49.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-04%2020_58_49.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -507,7 +509,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 
 &lt;p&gt;All right, it&amp;rsquo;s show time. Drop yourself into PowerShell on the server and run this.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools -Restart
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Install-WindowsFeature&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-name&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;AD-Domain-Services&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-IncludeManagementTools&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Restart&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -517,7 +519,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 &lt;p&gt;In a production environment, best practices state to make your active directory domain a subdomain of public domain that you own, like &lt;code&gt;ad.myawesomebusiness.com&lt;/code&gt;. CA&amp;rsquo;s will no longer sign certificates for fake domains (like *.local). You can, however, get a CA to sign a certificate for &lt;code&gt;exchangeserver.ad.myawesomebusiness.com&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-ADDSForest -DomainName Home.local -InstallDNS&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Install-ADDSForest&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-DomainName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Home.local&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-InstallDNS:&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -528,7 +530,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-04%2021_14_50.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-04%2021_14_50.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -539,7 +541,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-25%2016_54_40-DC1.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-25%2016_54_40-DC1.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -547,7 +549,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 
 &lt;p&gt;When the server comes up, you&amp;rsquo;ll notice that you are now signing in as &lt;code&gt;HOME\Administrator&lt;/code&gt;. Login and we will change the IP address. I&amp;rsquo;m going to assume you know &lt;em&gt;what&lt;/em&gt; to set you IP address to, but here is how:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-NetIPAddress&lt;/span&gt; -IPAddress 192.168.2.110 -DefaultGateway 192.168.2.1 -PrefixLength 24 -InterfaceAlias Ethernet
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;New-NetIPAddress&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-IPAddress&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;192.168.2.110&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-DefaultGateway&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;192.168.2.1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-PrefixLength&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;24&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-InterfaceAlias&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Ethernet&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -555,7 +557,7 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 
 &lt;p&gt;Now, we want to set the DNS servers on the server. Let&amp;rsquo;s set one to the server itself (it&amp;rsquo;s now a DNS server, after all), and set the other to our router.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-DnsClientServerAddress&lt;/span&gt; -InterfaceAlias Ethernet -ServerAddresses {192.168.2.110,192.168.2.1}
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Set-DnsClientServerAddress&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-InterfaceAlias&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Ethernet&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ServerAddresses&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;{192.168.2.110,192.168.2.1}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -587,32 +589,32 @@ netdom renamecomputer &lt;span style=&#34;color: #008000; font-weight: bold&#34;
 
 &lt;p&gt;Now, all that&amp;rsquo;s left is to promote it as a domain controller.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-ADDSDomainController -DomainName Home.local -InstallDNS&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Install-ADDSDomainController&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-DomainName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Home.local&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-InstallDNS:&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;The server will restart, and you will have two functioning domain controllers! If you want to check on your domain controllers, run some of these commands.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# List DCs&lt;/span&gt;
-netdom query dc
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# List DCs&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;netdom&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;query&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;dc&lt;/span&gt;
 
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Check FSMO roles&lt;/span&gt;
-&lt;span style=&#34;color: #008000&#34;&gt;Get-ADDomain&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Select-Object&lt;/span&gt; InfrastructureMaster, RIDMaster, PDCEmulator, DomainNamingMaster, SchemaMaster
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Check FSMO roles&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Get-ADDomain&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Select-Object&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;InfrastructureMaster,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;RIDMaster,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;PDCEmulator,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;DomainNamingMaster,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SchemaMaster&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it for today. Next time, we are going to setup a utility server with (&lt;strong&gt;GASP&lt;/strong&gt;) a GUI and all of the management tools. Note: It&amp;rsquo;s important to know how to go from Core to Minimal to Full GUI installations.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-4&#34;&gt;MCSA 70-10 Lab #4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-4&#34;&gt;MCSA 70-10 Lab #4&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>MCSA 70-410 Lab #4 - Install a GUI Utility Server</title>
-      <link>https://andrewaldrich.com/msexams/mcsa-70-410/lab-4/</link>
+      <link>http://localhost:1313/msexams/mcsa-70-410/lab-4/</link>
       <pubDate>Sun, 25 Oct 2015 21:47:28 -0500</pubDate>
       
-      <guid>https://andrewaldrich.com/msexams/mcsa-70-410/lab-4/</guid>
+      <guid>http://localhost:1313/msexams/mcsa-70-410/lab-4/</guid>
       <description>
 
 &lt;p&gt;For the exam, it&amp;rsquo;s important to know how to convert between Core, Minimal Installation, and Full installation. We&amp;rsquo;re going to do some of that today. Our first subject will be a utility server. We can install all of the management tools on this one to manage the other servers.&lt;/p&gt;
@@ -632,15 +634,15 @@ netdom query dc
 
 &lt;p&gt;We haven&amp;rsquo;t gone over how to join the domain yet when you aren&amp;rsquo;t promoting to a DC. There are two main ways, the old and the new (PowerShell) way. I&amp;rsquo;m going with the new one.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;# Method &lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt;:
-netdom join Util&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt; /domain:Home.local /userd:administrator /passwordd:**********
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Method 1:&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;netdom&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;join&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Util1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;/domain:Home.local&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;/userd:administrator&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;/passwordd:**********&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# Method 2:&lt;/span&gt;
-&lt;span style=&#34;color: #008000&#34;&gt;Add-Computer&lt;/span&gt; -ComputerName Util1 -DomainName Home.local
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Method 2:&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Add-Computer&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ComputerName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Util1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-DomainName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Home.local&lt;/span&gt;
 
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# You can also specify the -NewName parameter to rename the computer and join the domain in one go.&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# You can also specify the -NewName parameter to rename the computer and join the domain in one go.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -663,54 +665,54 @@ netdom join Util&lt;span style=&#34;color: #666666&#34;&gt;1&lt;/span&gt; /domai
 
 &lt;p&gt;Server core is really small and it doesn&amp;rsquo;t store the GUI binaries &amp;ldquo;just in case&amp;rdquo;. That means we need to provide them from the DVD. Mount that ISO again.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-VM&lt;/span&gt; Util1 | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMDvdDrive&lt;/span&gt; -Path E&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Lab\iso\2012R2.ISO
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Get-VM&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Util1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Add-VMDvdDrive&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\iso\2012R2.ISO&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;It probably mounted on &lt;code&gt;D:\&lt;/code&gt;, but you can check.
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-PSDrive&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Get-PSDrive&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;There is an install.wim file located at &lt;code&gt;D:\sources\install.wim&lt;/code&gt; that has all of the information we need. Most Windows install disks will have a couple of editions (like Standard and Datacenter) in two flavors (Core and Full). We need to know which edition we&amp;rsquo;re running.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-WindowsEdition&lt;/span&gt; -Online
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Get-WindowsEdition&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Online&lt;/span&gt;
 
-Edition &lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt; ServerDatacenter
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# So I&amp;#39;m running Datacenter edition&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Edition&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;ServerDatacenter&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# So I&amp;#39;m running Datacenter edition&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;And now we need to know the index of Datacenter edition in the install.wim file.
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-WindowsImage&lt;/span&gt; -ImagePath D&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\sources\install.wim
+&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Get-WindowsImage&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ImagePath&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;D:\sources\install.wim&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;ImageIndex       : 1
-ImageName        : Windows Server 2012 R2 SERVERSTANDARDCORE
-ImageDescription : Windows Server 2012 R2 SERVERSTANDARDCORE
-ImageSize        : 7,460,086,466 bytes
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;ImageIndex&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageName&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERSTANDARDCORE&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageDescription&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERSTANDARDCORE&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageSize&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;7,460,086,466&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;bytes&lt;/span&gt;
 
-ImageIndex       : 2
-ImageName        : Windows Server 2012 R2 SERVERSTANDARD
-ImageDescription : Windows Server 2012 R2 SERVERSTANDARD
-ImageSize        : 13,068,096,479 bytes
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageIndex&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageName&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERSTANDARD&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageDescription&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERSTANDARD&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageSize&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;13,068,096,479&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;bytes&lt;/span&gt;
 
-ImageIndex       : 3
-ImageName        : Windows Server 2012 R2 SERVERDATACENTERCORE
-ImageDescription : Windows Server 2012 R2 SERVERDATACENTERCORE
-ImageSize        : 7,457,614,120 bytes
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageIndex&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageName&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERDATACENTERCORE&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageDescription&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERDATACENTERCORE&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageSize&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;7,457,614,120&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;bytes&lt;/span&gt;
 
-ImageIndex       : 4
-ImageName        : Windows Server 2012 R2 SERVERDATACENTER
-ImageDescription : Windows Server 2012 R2 SERVERDATACENTER
-ImageSize        : 13,067,663,813 bytes
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageIndex&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;4&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageName&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERDATACENTER&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageDescription&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Windows&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2012&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;R2&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SERVERDATACENTER&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;ImageSize&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;13,067,663,813&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;bytes&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;So I need to target Index4, Datacenter full.&lt;/p&gt;
+So I need to target Index4, Datacenter full.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-WindowsFeature Server-Gui-Mgmt-Infra, Server-Gui-Shell -Restart -Source wim&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;D&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\sources\install.wim&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;4
-&lt;span style=&#34;color: #408080; font-style: italic&#34;&gt;# The :4 at the end is the index&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Install-WindowsFeature&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server-Gui-Mgmt-Infra,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Server-Gui-Shell&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Restart&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Source&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;wim:D:\sources\install.wim:4&lt;/span&gt;
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# The :4 at the end is the index&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -721,7 +723,7 @@ ImageSize        : 13,067,663,813 bytes
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-25%2022_12_21-Util1.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-25%2022_12_21-Util1.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -734,7 +736,7 @@ ImageSize        : 13,067,663,813 bytes
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-25%2022_30_00-Util1.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-25%2022_30_00-Util1.png&#34; /&gt;
     
     
 &lt;/figure&gt;
@@ -742,7 +744,7 @@ ImageSize        : 13,067,663,813 bytes
 
 &lt;p&gt;Finally, install the management tools. It&amp;rsquo;s simple.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Install-WindowsFeature RSAT
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Install-WindowsFeature&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;RSAT&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-IncludeAllSubFeature&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -751,13 +753,15 @@ ImageSize        : 13,067,663,813 bytes
 &lt;p&gt;
 &lt;figure &gt;
     
-        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-25%2022_36_51.png&#34; /&gt;
+        &lt;img src=&#34;http://localhost:1313/images/2015-10-25%2022_36_51.png&#34; /&gt;
     
     
 &lt;/figure&gt;
 &lt;/p&gt;
 
 &lt;p&gt;That&amp;rsquo;s it for today. Next time we&amp;rsquo;ll&amp;hellip; I&amp;rsquo;m not sure yet. But we have plenty to do!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/msexams/mcsa-70-410/lab-5&#34;&gt;MCSA 70-10 Lab #5&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

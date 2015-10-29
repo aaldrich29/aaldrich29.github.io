@@ -10,11 +10,11 @@
   <title>MCSA 70-410 Lab #3 - Creating Child VMs &middot; Andrew Aldrich</title>
 
   
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/poole.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/hyde.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/poole-overrides.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/hyde-overrides.css">
-  <link rel="stylesheet" href="https://andrewaldrich.com/css/hyde-x.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://localhost:1313/css/hyde-x.css">
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -60,14 +60,14 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item"><a href="https://andrewaldrich.com/">Home</a></li>
+      <li class="sidebar-nav-item"><a href="http://localhost:1313/">Home</a></li>
       <li class="sidebar-nav-item"><a href="/post/">Blog</a></li>
       
 
-      <li class="sidebar-nav-item"><a href="https://andrewaldrich.com/about/">About Me</a></li>
+      <li class="sidebar-nav-item"><a href="http://localhost:1313/about/">About Me</a></li>
       
 
-      <li class="sidebar-nav-item"><a href="https://andrewaldrich.com/msexams/">Micorosft Exams</a></li>
+      <li class="sidebar-nav-item"><a href="http://localhost:1313/msexams/">Micorosft Exams</a></li>
       
     </ul>
 
@@ -86,7 +86,7 @@
 
     
 
-    <p>Copyright &copy; 2015 <a href="https://andrewaldrich.com/license/">License</a><br/>
+    <p>Copyright &copy; 2015 <a href="http://localhost:1313/license/">License</a><br/>
        Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
   </div>
 </div>
@@ -95,7 +95,7 @@
 <div class="content container">
   <div class="post">
     <h1>MCSA 70-410 Lab #3 - Creating Child VMs</h1>
-    <span class="post-date">Oct 25, 2015 &middot; 4 minute read &middot; <a href="https://andrewaldrich.com/msexams/mcsa-70-410/lab-3/#disqus_thread">Comments</a>
+    <span class="post-date">Oct 25, 2015 &middot; 4 minute read &middot; <a href="http://localhost:1313/msexams/mcsa-70-410/lab-3/#disqus_thread">Comments</a>
     </span>
     
 
@@ -105,8 +105,8 @@
 
 <p>Let&rsquo;s start with our first DC:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">cd E<span style="border: 1px solid #FF0000">:</span>\Lab\scripts\
-.\<span style="color: #008000">New-ChildVM</span>.ps1 <span style="color: #BA2121">&quot;DC1&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">cd</span> <span style="color: #ffffff">E:\Lab\scripts\</span>
+<span style="color: #ffffff">.\New-ChildVM.ps1</span> <span style="color: #0086d2">&quot;DC1&quot;</span>
 </pre></div>
 
 
@@ -124,17 +124,17 @@
 
 <p>Fix the time / timezone.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">timedate.cpl
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">timedate.cpl</span>
 </pre></div>
 </p>
 
 <p>Rename the server to <code>DC1</code></p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">powershell <span style="color: #408080; font-style: italic">#remember, you start in a cmd window</span>
-<span style="color: #008000">Rename-Computer</span> DC1
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">powershell</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">#remember, you start in a cmd window</span>
+<span style="color: #ffffff">Rename-Computer</span> <span style="color: #ffffff">DC1</span>
 
-<span style="color: #408080; font-style: italic">#Also an acceptable answer:</span>
-netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>computername% /newname<span style="border: 1px solid #FF0000">:</span>DC1
+<span style="color: #008800; font-style: italic; background-color: #0f140f">#Also an acceptable answer:</span>
+<span style="color: #ffffff">netdom</span> <span style="color: #ffffff">renamecomputer</span> <span style="color: #fb660a; font-weight: bold">%</span><span style="color: #ffffff">computername%</span> <span style="color: #ffffff">/newname:DC1</span>
 </pre></div>
 </p>
 
@@ -157,7 +157,7 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 
 <p>All right, it&rsquo;s show time. Drop yourself into PowerShell on the server and run this.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools -Restart
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Install-WindowsFeature</span> <span style="color: #ffffff">-name</span> <span style="color: #ffffff">AD-Domain-Services</span> <span style="color: #ffffff">-IncludeManagementTools</span> <span style="color: #ffffff">-Restart</span>
 </pre></div>
 </p>
 
@@ -167,7 +167,7 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 <p>In a production environment, best practices state to make your active directory domain a subdomain of public domain that you own, like <code>ad.myawesomebusiness.com</code>. CA&rsquo;s will no longer sign certificates for fake domains (like *.local). You can, however, get a CA to sign a certificate for <code>exchangeserver.ad.myawesomebusiness.com</code>.</p>
 </blockquote>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-ADDSForest -DomainName Home.local -InstallDNS<span style="border: 1px solid #FF0000">:</span><span style="color: #19177C">$true</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Install-ADDSForest</span> <span style="color: #ffffff">-DomainName</span> <span style="color: #ffffff">Home.local</span> <span style="color: #ffffff">-InstallDNS:</span><span style="color: #fb660a">$true</span>
 </pre></div>
 </p>
 
@@ -197,7 +197,7 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 
 <p>When the server comes up, you&rsquo;ll notice that you are now signing in as <code>HOME\Administrator</code>. Login and we will change the IP address. I&rsquo;m going to assume you know <em>what</em> to set you IP address to, but here is how:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-NetIPAddress</span> -IPAddress 192.168.2.110 -DefaultGateway 192.168.2.1 -PrefixLength 24 -InterfaceAlias Ethernet
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">New-NetIPAddress</span> <span style="color: #ffffff">-IPAddress</span> <span style="color: #ffffff">192.168.2.110</span> <span style="color: #ffffff">-DefaultGateway</span> <span style="color: #ffffff">192.168.2.1</span> <span style="color: #ffffff">-PrefixLength</span> <span style="color: #ffffff">24</span> <span style="color: #ffffff">-InterfaceAlias</span> <span style="color: #ffffff">Ethernet</span>
 </pre></div>
 </p>
 
@@ -205,7 +205,7 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 
 <p>Now, we want to set the DNS servers on the server. Let&rsquo;s set one to the server itself (it&rsquo;s now a DNS server, after all), and set the other to our router.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-DnsClientServerAddress</span> -InterfaceAlias Ethernet -ServerAddresses {192.168.2.110,192.168.2.1}
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Set-DnsClientServerAddress</span> <span style="color: #ffffff">-InterfaceAlias</span> <span style="color: #ffffff">Ethernet</span> <span style="color: #ffffff">-ServerAddresses</span> <span style="color: #ffffff">{192.168.2.110,192.168.2.1}</span>
 </pre></div>
 </p>
 
@@ -237,17 +237,17 @@ netdom renamecomputer <span style="color: #008000; font-weight: bold">%</span>co
 
 <p>Now, all that&rsquo;s left is to promote it as a domain controller.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Install-ADDSDomainController -DomainName Home.local -InstallDNS<span style="border: 1px solid #FF0000">:</span><span style="color: #19177C">$true</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Install-ADDSDomainController</span> <span style="color: #ffffff">-DomainName</span> <span style="color: #ffffff">Home.local</span> <span style="color: #ffffff">-InstallDNS:</span><span style="color: #fb660a">$true</span>
 </pre></div>
 </p>
 
 <p>The server will restart, and you will have two functioning domain controllers! If you want to check on your domain controllers, run some of these commands.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #408080; font-style: italic"># List DCs</span>
-netdom query dc
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f"># List DCs</span>
+<span style="color: #ffffff">netdom</span> <span style="color: #ffffff">query</span> <span style="color: #ffffff">dc</span>
 
-<span style="color: #408080; font-style: italic"># Check FSMO roles</span>
-<span style="color: #008000">Get-ADDomain</span> | <span style="color: #008000">Select-Object</span> InfrastructureMaster, RIDMaster, PDCEmulator, DomainNamingMaster, SchemaMaster
+<span style="color: #008800; font-style: italic; background-color: #0f140f"># Check FSMO roles</span>
+<span style="color: #ffffff">Get-ADDomain</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Select-Object</span> <span style="color: #ffffff">InfrastructureMaster,</span> <span style="color: #ffffff">RIDMaster,</span> <span style="color: #ffffff">PDCEmulator,</span> <span style="color: #ffffff">DomainNamingMaster,</span> <span style="color: #ffffff">SchemaMaster</span>
 </pre></div>
 </p>
 
