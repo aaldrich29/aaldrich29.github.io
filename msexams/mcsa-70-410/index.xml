@@ -6,7 +6,7 @@
     <description>Recent content in Mcsa 70 410 on Andrew Aldrich</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Oct 2015 21:47:28 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2015 22:47:28 -0500</lastBuildDate>
     <atom:link href="https://andrewaldrich.com/msexams/mcsa-70-410/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -109,44 +109,44 @@
 
 &lt;p&gt;Create your first VM with a disk:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VM&lt;/span&gt; -name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Parent&amp;quot;&lt;/span&gt; -NewVHDPath &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -NewVHDSizeBytes 40GB -Generation 2
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;New-VM&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-name&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Parent&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-NewVHDPath&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-NewVHDSizeBytes&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;40GB&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Generation&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;2&lt;/span&gt;
 
-Name   State CPUUsage(%) MemoryAssigned(M) Uptime   Status             Version
-----   ----- ----------- ----------------- ------   ------             -------
-Parent Off   0           0                 00&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;00&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;00 Operating normally 6.2
+&lt;span style=&#34;color: #ffffff&#34;&gt;Name&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;State&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;CPUUsage(%)&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;MemoryAssigned(M)&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Uptime&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;Status&lt;/span&gt;             &lt;span style=&#34;color: #ffffff&#34;&gt;Version&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;----&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;-----&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-----------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-----------------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;------&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;------&lt;/span&gt;             &lt;span style=&#34;color: #ffffff&#34;&gt;-------&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Parent&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Off&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;                 &lt;span style=&#34;color: #ffffff&#34;&gt;00:00:00&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Operating&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;normally&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;6.2&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Great! You have a vm. Now let&amp;rsquo;s save the VM object itself (not the name) as a variable. This just makes life easier.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; = &lt;span style=&#34;color: #008000&#34;&gt;Get-VM&lt;/span&gt; &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Parent&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VM&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Parent&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Now you can do cool things like:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VM&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VM&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Anyways, now we need to add the ISO file.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Add-VMDvdDrive&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\iso\2012R2.ISO&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Add-VMDvdDrive&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\iso\2012R2.ISO&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;And let&amp;rsquo;s go ahead and set it as the default boot device.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$dvd&lt;/span&gt;= &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMDvdDrive&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$dvd&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$dvd&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMDvdDrive&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Set-VMFirmware&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-FirstBootDevice&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$dvd&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s crank her up!&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Start-VM&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt;.state
-Running
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Start-VM&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;.state&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Running&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -165,8 +165,8 @@ Running
 
 &lt;p&gt;Now that it&amp;rsquo;s up and running, let&amp;rsquo;s go ahead and set the default boot device back to the VHD. You don&amp;rsquo;t have to, but we&amp;rsquo;re all about learning today.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$hdd&lt;/span&gt; = &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
-&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Set-VMFirmware&lt;/span&gt; -FirstBootDevice &lt;span style=&#34;color: #19177C&#34;&gt;$hd&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$hdd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Set-VMFirmware&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-FirstBootDevice&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$hd&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -182,9 +182,9 @@ Running
 
 &lt;p&gt;$vm | Get-VMNetworkAdapter&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Name            IsManagementOs VMName SwitchName MacAddress   Status              IPAddresses
-----            -------------- ------ ---------- ----------   ------              -----------
-Network Adapter False          Parent            00155D020A00 {LostCommunication} {}
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Name&lt;/span&gt;            &lt;span style=&#34;color: #ffffff&#34;&gt;IsManagementOs&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;VMName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;SwitchName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;MacAddress&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;Status&lt;/span&gt;              &lt;span style=&#34;color: #ffffff&#34;&gt;IPAddresses&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;----&lt;/span&gt;            &lt;span style=&#34;color: #ffffff&#34;&gt;--------------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;----------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;----------&lt;/span&gt;   &lt;span style=&#34;color: #ffffff&#34;&gt;------&lt;/span&gt;              &lt;span style=&#34;color: #ffffff&#34;&gt;-----------&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Network&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Adapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;False&lt;/span&gt;          &lt;span style=&#34;color: #ffffff&#34;&gt;Parent&lt;/span&gt;            &lt;span style=&#34;color: #ffffff&#34;&gt;00155D020A00&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;{LostCommunication}&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;{}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -192,15 +192,15 @@ Network Adapter False          Parent            00155D020A00 {LostCommunication
 
 &lt;p&gt;First, let&amp;rsquo;s find which network adapter we want to use. I only have the one:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Get-NetAdapter&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Get-NetAdapter&lt;/span&gt;
 
-Name                      InterfaceDescription                    ifIndex Status       MacAddress            LinkSpeed ----                      --------------------                    ------- ------       ----------            --------- Ethernet                  Intel(R) Ethernet Connection I217-V           5 Up           D0-50-99-01-B0-23        1 Gbps
+&lt;span style=&#34;color: #ffffff&#34;&gt;Name&lt;/span&gt;                      &lt;span style=&#34;color: #ffffff&#34;&gt;InterfaceDescription&lt;/span&gt;                    &lt;span style=&#34;color: #ffffff&#34;&gt;ifIndex&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Status&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;MacAddress&lt;/span&gt;            &lt;span style=&#34;color: #ffffff&#34;&gt;LinkSpeed&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;----&lt;/span&gt;                      &lt;span style=&#34;color: #ffffff&#34;&gt;--------------------&lt;/span&gt;                    &lt;span style=&#34;color: #ffffff&#34;&gt;-------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;------&lt;/span&gt;       &lt;span style=&#34;color: #ffffff&#34;&gt;----------&lt;/span&gt;            &lt;span style=&#34;color: #ffffff&#34;&gt;---------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Ethernet&lt;/span&gt;                  &lt;span style=&#34;color: #ffffff&#34;&gt;Intel(R)&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Ethernet&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Connection&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;I217-V&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Up&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;D0-50-99-01-B0-23&lt;/span&gt;        &lt;span style=&#34;color: #ffffff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Gbps&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;We&amp;rsquo;re going to create a new switch named &amp;ldquo;Wired&amp;rdquo;, attach it to the network interface named &amp;ldquo;Ethernet&amp;rdquo;, and allow the management OS to share the network adapter (otherwise we would need separate adapters for Hyper-V and the base OS).&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;New-VMSwitch&lt;/span&gt; -Name &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt; -NetAdapterName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Ethernet&amp;quot;&lt;/span&gt; -AllowManagementOS &lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;New-VMSwitch&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Name&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-NetAdapterName&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Ethernet&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-AllowManagementOS&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -208,7 +208,7 @@ Name                      InterfaceDescription                    ifIndex Status
 
 &lt;p&gt;Now we can connect our VM to the new switch.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; -SwitchName &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMNetworkAdapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Connect-VMNetworkAdapter&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-SwitchName&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Wired&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -237,8 +237,8 @@ Name                      InterfaceDescription                    ifIndex Status
 
 &lt;p&gt;Go ahead and log back in to your VM. We are going to Sysprep the machine, which resets the GUID and gets it ready to be &amp;ldquo;Unboxed&amp;rdquo; again. You would do this before you, for instance, sold a machine.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cd C&lt;span style=&#34;border: 1px solid #FF0000&#34;&gt;:&lt;/span&gt;\Windows\System32\Sysprep
-sysprep.exe
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;C:\Windows\System32\Sysprep&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;sysprep.exe&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -255,9 +255,9 @@ sysprep.exe
 
 &lt;p&gt;If you go look at your Parent.vhdx, it should be somewhere in the neighborhood of 8GB. Let&amp;rsquo;s see if we can compact it.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;Mount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -ReadOnly
-Optimize-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -Mode full
-Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Mount-VHD&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ReadOnly&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Optimize-VHD&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Mode&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;full&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Dismount-VHD&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -265,13 +265,13 @@ Dismount-VHD &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Pare
 
 &lt;p&gt;Now we&amp;rsquo;re ready to truly make this a parent disk. First of all, we don&amp;rsquo;t need that virtual machine anymore. Go ahead and get rid of it.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; &lt;span style=&#34;color: #19177C&#34;&gt;$vm&lt;/span&gt; | &lt;span style=&#34;color: #008000&#34;&gt;Remove-VM&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Remove-VM&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;We don&amp;rsquo;t want to Parent.vhdx disk to ever change because that will invalidate all of the child disks. Let&amp;rsquo;s mark it as Read Only.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #f8f8f8&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008000&#34;&gt;Set-ItemProperty&lt;/span&gt; -Path &lt;span style=&#34;color: #BA2121&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; -Name IsReadOnly -Value &lt;span style=&#34;color: #19177C&#34;&gt;$true&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Set-ItemProperty&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;E:\Lab\VM\Parent.vhdx&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Name&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;IsReadOnly&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Value&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
@@ -762,6 +762,190 @@ So I need to target Index4, Datacenter full.&lt;/p&gt;
 &lt;p&gt;That&amp;rsquo;s it for today. Next time we&amp;rsquo;ll&amp;hellip; I&amp;rsquo;m not sure yet. But we have plenty to do!&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-5&#34;&gt;MCSA 70-10 Lab #5&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MCSA 70-410 Lab #5 - Working with Storage</title>
+      <link>https://andrewaldrich.com/msexams/mcsa-70-410/lab-5/</link>
+      <pubDate>Tue, 27 Oct 2015 22:47:28 -0500</pubDate>
+      
+      <guid>https://andrewaldrich.com/msexams/mcsa-70-410/lab-5/</guid>
+      <description>
+
+&lt;p&gt;We&amp;rsquo;re going to have some fun with storage today!&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;rsquo;s come to my attention that my version of the 70-410 may have been much heavier on PowerShell than others. I&amp;rsquo;m mostly going to focus on the PowerShell, still, but I encourage you to know how to do these tasks in the GUI. Especially when it comes to Storage and Hyper-V.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;initial-setup:cd19ec889cdd1b5ab096016ccf02e7cb&#34;&gt;Initial Setup&lt;/h2&gt;
+
+&lt;p&gt;Go ahead and spin up a storage server. Let&amp;rsquo;s call this &lt;code&gt;Stor1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;.\New-ChildVM.ps1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Go ahead and add at least three more drives to the machine. This lab definitely had lots of room to play around with.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;get-vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;
+
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Foreach 1..3 Create a new dynamic VHD. % is short for Foreach-Item&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;1..3&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;{New-VHD&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Dynamic&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-SizeBytes&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;100GB&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Stor1-&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$_&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;.vhdx}&lt;/span&gt;
+
+&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# And add each disk to the machine&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;1..3&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;%&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$VM&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Add-VMHardDiskDrive&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Path&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Stor1-&lt;/span&gt;&lt;span style=&#34;color: #fb660a&#34;&gt;$_&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;.vhdx&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The settings for this server should look something like this now:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-27%2021_30_26.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And you can verify through PowerShell:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;PS&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\scripts&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$vm&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Get-VMHardDiskDrive&lt;/span&gt;
+
+&lt;span style=&#34;color: #ffffff&#34;&gt;VMName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;ControllerType&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;ControllerNumber&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;ControllerLocation&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;DiskNumber&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Path&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;--------------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;----------------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;------------------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;----------&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;----&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;  &lt;span style=&#34;color: #ffffff&#34;&gt;SCSI&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;                &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;                             &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Stor1.vhdx&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;  &lt;span style=&#34;color: #ffffff&#34;&gt;SCSI&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;                &lt;span style=&#34;color: #ffffff&#34;&gt;1&lt;/span&gt;                             &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Stor1-1.vhdx&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;  &lt;span style=&#34;color: #ffffff&#34;&gt;SCSI&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;                &lt;span style=&#34;color: #ffffff&#34;&gt;2&lt;/span&gt;                             &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Stor1-2.vhdx&lt;/span&gt;
+&lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;  &lt;span style=&#34;color: #ffffff&#34;&gt;SCSI&lt;/span&gt;           &lt;span style=&#34;color: #ffffff&#34;&gt;0&lt;/span&gt;                &lt;span style=&#34;color: #ffffff&#34;&gt;3&lt;/span&gt;                             &lt;span style=&#34;color: #ffffff&#34;&gt;E:\Lab\VM\Stor1-3.vhdx&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;At this point, go ahead and go through all of the initial setup. IP, DNS, Domain, Time, Name, Etc. Review the &lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-3&#34;&gt;previous&lt;/a&gt; &lt;a href=&#34;https://andrewaldrich.com/msexams/mcsa-70-410/lab-4&#34;&gt;two&lt;/a&gt; lessons if needed. Come back when you&amp;rsquo;re done.&lt;/p&gt;
+
+&lt;p&gt;Here is where &lt;code&gt;Util1&lt;/code&gt; really comes in handy. Close the windows for &lt;code&gt;Stor1&lt;/code&gt; and open &lt;code&gt;Util1&lt;/code&gt;. Click on Manage &amp;gt; Add servers and add &lt;code&gt;Stor1&lt;/code&gt; (and any other servers).&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-27%2021_37_36.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now you can manage all of the installed roles right from one server. Even better, if you right click a server, you get the option to open a PowerShell connection to that computer! Try it.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-27%2021_40_20-Util1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You can also manually run PowerShell and issue this command (hint: know this).&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Enter-PSSession&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;How easy is that? You can see now that we will never have to touch &lt;code&gt;Stor1&lt;/code&gt; (or the others) again. We&amp;rsquo;ll do everything from this server.&lt;/p&gt;
+
+&lt;p&gt;Still in server manager, let&amp;rsquo;s go ahead and install all the roles we need on &lt;code&gt;Stor1&lt;/code&gt;. Click Manage &amp;gt; Add Roles and Features. Install at least the following features on &lt;code&gt;Stor1&lt;/code&gt; (I don&amp;rsquo;t know what all we&amp;rsquo;re going to do just yet).&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-27%2021_47_41.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;You can install individual roles on another server from PowerShell like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;Install-WindowsFeature&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ComputerName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Stor1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Name&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Files-Services,&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;FS-Data-Deduplication&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;[etc...]&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-IncludeManagementTools&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;storage-pools:cd19ec889cdd1b5ab096016ccf02e7cb&#34;&gt;Storage Pools&lt;/h2&gt;
+
+&lt;p&gt;If you drill down to the disks in File and Storage Services in Server Manager, you&amp;rsquo;ll see that the 3 disks we added are offline. That&amp;rsquo;s okay. Take a look at storage pools. You&amp;rsquo;ll see the &amp;ldquo;primordial pool&amp;rdquo;, which means you haven&amp;rsquo;t created one. Let&amp;rsquo;s create one.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We&amp;rsquo;re going to do this through PowerShell, but I &lt;em&gt;strongly&lt;/em&gt; recommend you back and do this in the GUI.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #008800; font-style: italic; background-color: #0f140f&#34;&gt;# Get the disks that can be pooled (not the one with C:\)&lt;/span&gt;
+&lt;span style=&#34;color: #fb660a&#34;&gt;$PhysicalDisks&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;(Get-PhysicalDisk&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-CanPool&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$True&lt;/span&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color: #ffffff&#34;&gt;New-StoragePool&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-FriendlyName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Pool1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-PhysicalDisks&lt;/span&gt; &lt;span style=&#34;color: #fb660a&#34;&gt;$PhysicalDisks&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-StorageSubsystemFriendlyName&lt;/span&gt; &lt;span style=&#34;color: #0086d2&#34;&gt;&amp;quot;Storage Spaces*&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;For more information about this command, look &lt;a href=&#34;https://technet.microsoft.com/en-us/library/hh848689.aspx&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you look back in server manager, you now have a new pool under &amp;ldquo;Storage Spaces&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-27%2022_20_25.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We need to add virtual disks to the storage pool in order for it to be any use to us.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #111111&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ffffff&#34;&gt;New-VirtualDisk&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-StoragePoolFriendlyName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Pool1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-FriendlyName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;VD1&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-Size&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;100GB&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ResiliencySettingName&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Parity&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;-ProvisioningType&lt;/span&gt; &lt;span style=&#34;color: #ffffff&#34;&gt;Thin&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Great! We have a new virtual disk. This one was created with &lt;code&gt;Parity&lt;/code&gt; resiliency. You can also choose stripe (no resiliency) and mirror.&lt;/p&gt;
+
+&lt;p&gt;Now all that&amp;rsquo;s left is to bring it online and format it. You can (and should) know how to do this through DiskPart, but you should also do it through Server Manager &lt;em&gt;and&lt;/em&gt; Disk Manager.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-31%2019_14_07.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-31%2019_15_25.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now is a good time to create some more virtual disks then pull disconnect a VHD or two from the server and see what happens.&lt;/p&gt;
+
+&lt;p&gt;I just removed one of the drives from Stor1. It&amp;rsquo;s complaining, but my parity disk is still online.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://andrewaldrich.com/images/2015-10-31%2019_20_38.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you add the disk back in, the storage pool should go back to normal.&lt;/p&gt;
+
+&lt;p&gt;Next time, we&amp;rsquo;re going to go over file shares.&lt;/p&gt;
 </description>
     </item>
     

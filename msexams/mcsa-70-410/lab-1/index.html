@@ -162,44 +162,44 @@
 
 <p>Create your first VM with a disk:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VM</span> -name <span style="color: #BA2121">&quot;Parent&quot;</span> -NewVHDPath <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -NewVHDSizeBytes 40GB -Generation 2
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">New-VM</span> <span style="color: #ffffff">-name</span> <span style="color: #0086d2">&quot;Parent&quot;</span> <span style="color: #ffffff">-NewVHDPath</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> <span style="color: #ffffff">-NewVHDSizeBytes</span> <span style="color: #ffffff">40GB</span> <span style="color: #ffffff">-Generation</span> <span style="color: #ffffff">2</span>
 
-Name   State CPUUsage(%) MemoryAssigned(M) Uptime   Status             Version
-----   ----- ----------- ----------------- ------   ------             -------
-Parent Off   0           0                 00<span style="border: 1px solid #FF0000">:</span>00<span style="border: 1px solid #FF0000">:</span>00 Operating normally 6.2
+<span style="color: #ffffff">Name</span>   <span style="color: #ffffff">State</span> <span style="color: #ffffff">CPUUsage(%)</span> <span style="color: #ffffff">MemoryAssigned(M)</span> <span style="color: #ffffff">Uptime</span>   <span style="color: #ffffff">Status</span>             <span style="color: #ffffff">Version</span>
+<span style="color: #ffffff">----</span>   <span style="color: #ffffff">-----</span> <span style="color: #ffffff">-----------</span> <span style="color: #ffffff">-----------------</span> <span style="color: #ffffff">------</span>   <span style="color: #ffffff">------</span>             <span style="color: #ffffff">-------</span>
+<span style="color: #ffffff">Parent</span> <span style="color: #ffffff">Off</span>   <span style="color: #ffffff">0</span>           <span style="color: #ffffff">0</span>                 <span style="color: #ffffff">00:00:00</span> <span style="color: #ffffff">Operating</span> <span style="color: #ffffff">normally</span> <span style="color: #ffffff">6.2</span>
 </pre></div>
 </p>
 
 <p>Great! You have a vm. Now let&rsquo;s save the VM object itself (not the name) as a variable. This just makes life easier.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> = <span style="color: #008000">Get-VM</span> <span style="color: #BA2121">&quot;Parent&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">Get-VM</span> <span style="color: #0086d2">&quot;Parent&quot;</span>
 </pre></div>
 </p>
 
 <p>Now you can do cool things like:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VM</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VM</span>
 </pre></div>
 </p>
 
 <p>Anyways, now we need to add the ISO file.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Add-VMDvdDrive</span> -Path <span style="color: #BA2121">&quot;E:\Lab\iso\2012R2.ISO&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Add-VMDvdDrive</span> <span style="color: #ffffff">-Path</span> <span style="color: #0086d2">&quot;E:\Lab\iso\2012R2.ISO&quot;</span>
 </pre></div>
 </p>
 
 <p>And let&rsquo;s go ahead and set it as the default boot device.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$dvd</span>= <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMDvdDrive</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$dvd</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$dvd</span><span style="color: #ffffff">=</span> <span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMDvdDrive</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Set-VMFirmware</span> <span style="color: #ffffff">-FirstBootDevice</span> <span style="color: #fb660a">$dvd</span>
 </pre></div>
 </p>
 
 <p>Let&rsquo;s crank her up!</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Start-VM</span>
-<span style="color: #19177C">$vm</span>.state
-Running
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Start-VM</span>
+<span style="color: #fb660a">$vm</span><span style="color: #ffffff">.state</span>
+<span style="color: #ffffff">Running</span>
 </pre></div>
 </p>
 
@@ -218,8 +218,8 @@ Running
 
 <p>Now that it&rsquo;s up and running, let&rsquo;s go ahead and set the default boot device back to the VHD. You don&rsquo;t have to, but we&rsquo;re all about learning today.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$hdd</span> = <span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMHardDiskDrive</span>
-<span style="color: #19177C">$vm</span> | <span style="color: #008000">Set-VMFirmware</span> -FirstBootDevice <span style="color: #19177C">$hd</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$hdd</span> <span style="color: #ffffff">=</span> <span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMHardDiskDrive</span>
+<span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Set-VMFirmware</span> <span style="color: #ffffff">-FirstBootDevice</span> <span style="color: #fb660a">$hd</span>
 </pre></div>
 </p>
 
@@ -235,9 +235,9 @@ Running
 
 <p>$vm | Get-VMNetworkAdapter</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Name            IsManagementOs VMName SwitchName MacAddress   Status              IPAddresses
-----            -------------- ------ ---------- ----------   ------              -----------
-Network Adapter False          Parent            00155D020A00 {LostCommunication} {}
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Name</span>            <span style="color: #ffffff">IsManagementOs</span> <span style="color: #ffffff">VMName</span> <span style="color: #ffffff">SwitchName</span> <span style="color: #ffffff">MacAddress</span>   <span style="color: #ffffff">Status</span>              <span style="color: #ffffff">IPAddresses</span>
+<span style="color: #ffffff">----</span>            <span style="color: #ffffff">--------------</span> <span style="color: #ffffff">------</span> <span style="color: #ffffff">----------</span> <span style="color: #ffffff">----------</span>   <span style="color: #ffffff">------</span>              <span style="color: #ffffff">-----------</span>
+<span style="color: #ffffff">Network</span> <span style="color: #ffffff">Adapter</span> <span style="color: #ffffff">False</span>          <span style="color: #ffffff">Parent</span>            <span style="color: #ffffff">00155D020A00</span> <span style="color: #ffffff">{LostCommunication}</span> <span style="color: #ffffff">{}</span>
 </pre></div>
 </p>
 
@@ -245,15 +245,15 @@ Network Adapter False          Parent            00155D020A00 {LostCommunication
 
 <p>First, let&rsquo;s find which network adapter we want to use. I only have the one:</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Get-NetAdapter</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Get-NetAdapter</span>
 
-Name                      InterfaceDescription                    ifIndex Status       MacAddress            LinkSpeed ----                      --------------------                    ------- ------       ----------            --------- Ethernet                  Intel(R) Ethernet Connection I217-V           5 Up           D0-50-99-01-B0-23        1 Gbps
+<span style="color: #ffffff">Name</span>                      <span style="color: #ffffff">InterfaceDescription</span>                    <span style="color: #ffffff">ifIndex</span> <span style="color: #ffffff">Status</span>       <span style="color: #ffffff">MacAddress</span>            <span style="color: #ffffff">LinkSpeed</span> <span style="color: #ffffff">----</span>                      <span style="color: #ffffff">--------------------</span>                    <span style="color: #ffffff">-------</span> <span style="color: #ffffff">------</span>       <span style="color: #ffffff">----------</span>            <span style="color: #ffffff">---------</span> <span style="color: #ffffff">Ethernet</span>                  <span style="color: #ffffff">Intel(R)</span> <span style="color: #ffffff">Ethernet</span> <span style="color: #ffffff">Connection</span> <span style="color: #ffffff">I217-V</span>           <span style="color: #ffffff">5</span> <span style="color: #ffffff">Up</span>           <span style="color: #ffffff">D0-50-99-01-B0-23</span>        <span style="color: #ffffff">1</span> <span style="color: #ffffff">Gbps</span>
 </pre></div>
 </p>
 
 <p>We&rsquo;re going to create a new switch named &ldquo;Wired&rdquo;, attach it to the network interface named &ldquo;Ethernet&rdquo;, and allow the management OS to share the network adapter (otherwise we would need separate adapters for Hyper-V and the base OS).</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">New-VMSwitch</span> -Name <span style="color: #BA2121">&quot;Wired&quot;</span> -NetAdapterName <span style="color: #BA2121">&quot;Ethernet&quot;</span> -AllowManagementOS <span style="color: #19177C">$true</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">New-VMSwitch</span> <span style="color: #ffffff">-Name</span> <span style="color: #0086d2">&quot;Wired&quot;</span> <span style="color: #ffffff">-NetAdapterName</span> <span style="color: #0086d2">&quot;Ethernet&quot;</span> <span style="color: #ffffff">-AllowManagementOS</span> <span style="color: #fb660a">$true</span>
 </pre></div>
 </p>
 
@@ -261,7 +261,7 @@ Name                      InterfaceDescription                    ifIndex Status
 
 <p>Now we can connect our VM to the new switch.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #19177C">$vm</span> | <span style="color: #008000">Get-VMNetworkAdapter</span> | <span style="color: #008000">Connect-VMNetworkAdapter</span> -SwitchName <span style="color: #BA2121">&quot;Wired&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Get-VMNetworkAdapter</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Connect-VMNetworkAdapter</span> <span style="color: #ffffff">-SwitchName</span> <span style="color: #0086d2">&quot;Wired&quot;</span>
 </pre></div>
 </p>
 
@@ -290,8 +290,8 @@ Name                      InterfaceDescription                    ifIndex Status
 
 <p>Go ahead and log back in to your VM. We are going to Sysprep the machine, which resets the GUID and gets it ready to be &ldquo;Unboxed&rdquo; again. You would do this before you, for instance, sold a machine.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">cd C<span style="border: 1px solid #FF0000">:</span>\Windows\System32\Sysprep
-sysprep.exe
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">cd</span> <span style="color: #ffffff">C:\Windows\System32\Sysprep</span>
+<span style="color: #ffffff">sysprep.exe</span>
 </pre></div>
 </p>
 
@@ -308,9 +308,9 @@ sysprep.exe
 
 <p>If you go look at your Parent.vhdx, it should be somewhere in the neighborhood of 8GB. Let&rsquo;s see if we can compact it.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Mount-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -ReadOnly
-Optimize-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -Mode full
-Dismount-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Mount-VHD</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> <span style="color: #ffffff">-ReadOnly</span>
+<span style="color: #ffffff">Optimize-VHD</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> <span style="color: #ffffff">-Mode</span> <span style="color: #ffffff">full</span>
+<span style="color: #ffffff">Dismount-VHD</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Parent.vhdx&quot;</span>
 </pre></div>
 </p>
 
@@ -318,13 +318,13 @@ Dismount-VHD <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</spa
 
 <p>Now we&rsquo;re ready to truly make this a parent disk. First of all, we don&rsquo;t need that virtual machine anymore. Go ahead and get rid of it.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"> <span style="color: #19177C">$vm</span> | <span style="color: #008000">Remove-VM</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"> <span style="color: #fb660a">$vm</span> <span style="color: #ffffff">|</span> <span style="color: #ffffff">Remove-VM</span>
 </pre></div>
 </p>
 
 <p>We don&rsquo;t want to Parent.vhdx disk to ever change because that will invalidate all of the child disks. Let&rsquo;s mark it as Read Only.</p>
 
-<p><div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000">Set-ItemProperty</span> -Path <span style="color: #BA2121">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> -Name IsReadOnly -Value <span style="color: #19177C">$true</span>
+<p><div class="highlight" style="background: #111111"><pre style="line-height: 125%"><span style="color: #ffffff">Set-ItemProperty</span> <span style="color: #ffffff">-Path</span> <span style="color: #0086d2">&quot;E:\Lab\VM\Parent.vhdx&quot;</span> <span style="color: #ffffff">-Name</span> <span style="color: #ffffff">IsReadOnly</span> <span style="color: #ffffff">-Value</span> <span style="color: #fb660a">$true</span>
 </pre></div>
 </p>
 
