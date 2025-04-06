@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aaldrich29's Projects</title>
+
+    <style>
+        /* Import external fonts */
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /* Retro font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Cleaner font for text */
+
+        /* Define color variables and basic settings */
+        :root {
+            --bg-color: #008080; /* Teal background - classic 90s */
+            --card-bg: #c0c0c0; /* Windows gray */
+            --text-color: #000000;
+            --header-bg: #000080; /* Navy Blue */
+            --header-text: #ffffff;
+            --border-light: #ffffff;
+            --border-dark: #808080;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif; /* Or 'Tahoma', sans-serif if available */
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        /* Header styling - like a window title bar */
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 10px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 2px solid;
+            /* Create 3D bevel effect */
+            border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+        }
+
+        header h1 {
+            font-family: 'VT323', monospace; /* Retro font for main title */
+            font-size: 2.5em;
+            margin: 0.2em 0;
+            color: #ffff00; /* Bright yellow */
+        }
+
+        header p {
+            margin: 5px 0;
+        }
+
+        header a {
+            color: #00ffff; /* Cyan link in header */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        header a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* General link styling */
+        a {
+            color: #0000ff; /* Standard blue link */
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #ff00ff; /* Magenta hover */
+        }
+
+        /* Project gallery grid layout */
+        #project-gallery {
+            display: grid;
+            /* Responsive grid: columns are at least 320px wide */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px; /* Limit max width */
+            margin: 0 auto; /* Center the gallery */
+        }
+
+        /* Styling for each project card - like a UI element */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 2px solid;
+            /* Bevel up effect */
+            border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
+            padding: 5px; /* Padding acts like the inner space of the window */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Subtle drop shadow */
+        }
+
+        /* Container for the image - gives an inset feel */
+        .project-image {
+             border: 2px solid;
+             /* Bevel down effect */
+             border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
+             margin-bottom: 5px;
+             background-color: #fff; /* White background for the image area */
+             /* Ensure image container doesn't collapse */
+             min-height: 204px; /* Height (200px) + border (2*2px) */
+             /* Make the container itself non-interactive for the link */
+             display: block; /* Needed for link wrapping */
+        }
+
+        /* Make the image link display as block to fill the container */
+        .project-image a {
+             display: block;
+             /* Remove default link underline for the image */
+             text-decoration: none;
+        }
+
+        .project-image img {
+            display: block; /* Images are block elements by default, but good to be explicit */
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: contain; /* Show the whole image, may leave whitespace */
+            /* Keep pixel art crisp if used (though placeholders won't be pixelated) */
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* Container for project text info */
+        .project-info {
+            padding: 10px;
+        }
+
+        .project-info h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif; /* More system-like font */
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .project-info h2 a {
+            color: #000080; /* Dark blue link in title */
+            text-decoration: none;
+        }
+        .project-info h2 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9em;
+            background-color: var(--card-bg);
+            padding: 5px;
+            border: 1px solid var(--border-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Awesome Projects</h1>
+        <p>A collection of utilities and fun things I've built.</p>
+        <p>Find me on <a href="https://github.com/aaldrich29" target="_blank" rel="noopener noreferrer">GitHub</a>!</p>
+    </header>
+
+    <main id="project-gallery">
+
+        <article class="project-card">
+            <div class="project-image">
+                <a href="https://aaldrich29.github.io/ultimate-tic-tac-toe/" target="_blank" rel="noopener noreferrer">
+                    <img src="ultimate-ttt.jpg" alt="Ultimate Tic-Tac-Toe Screenshot">
+                </a>
+            </div>
+            <div class="project-info">
+                <h2><a href="https://aaldrich29.github.io/ultimate-tic-tac-toe/" target="_blank" rel="noopener noreferrer">Ultimate Tic-Tac-Toe</a></h2>
+                <p>A more complex version of Tic-Tac-Toe with a strategic twist. Built with a retro arcade feel.</p>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-image">
+                 <a href="https://aaldrich29.github.io/simple-qr-code-generator/" target="_blank" rel="noopener noreferrer">
+                     <img src="simple-qr.jpg" alt="QR Code Generator Screenshot">
+                 </a>
+            </div>
+            <div class="project-info">
+                <h2><a href="https://aaldrich29.github.io/simple-qr-code-generator/" target="_blank" rel="noopener noreferrer">Simple QR Code Generator</a></h2>
+                <p>Generate QR codes easily. Styled with a nostalgic Windows 95 look. No ads or sign-up.</p>
+            </div>
+        </article>
+
+        <article class="project-card">
+             <div class="project-image">
+                 <a href="https://aaldrich29.github.io/barbell-plate-calculator/" target="_blank" rel="noopener noreferrer">
+                     <img src="simple-plate-calc.jpg" alt="Barbell Plate Calculator Screenshot">
+                 </a>
+             </div>
+             <div class="project-info">
+                 <h2><a href="https://aaldrich29.github.io/barbell-plate-calculator/" target="_blank" rel="noopener noreferrer">Simple Barbell Plate Calculator</a></h2>
+                 <p>Calculates which plates to load on a barbell for a target weight. Persistent plate inventory.</p>
+            </div>
+        </article>
+
+        </main>
+
+    <footer>
+        <p>&copy; 2025 aaldrich29</p>
+    </footer>
+
+</body>
+</html>
