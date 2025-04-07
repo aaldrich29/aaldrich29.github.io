@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Magic Conch Shell</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Luckiest Guy', cursive;
+            /* Underwater gradient background */
+            background: linear-gradient(to bottom, #87CEEB, #1E90FF); /* Sky blue to Dodger blue */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            color: #ffffff; /* White text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Text shadow for readability */
+        }
+        .conch-container {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+        .conch-emoji {
+            font-size: 6rem; /* Large emoji */
+            line-height: 1;
+            margin-bottom: 20px;
+            display: inline-block;
+            transform-origin: bottom center;
+            /* Add a subtle animation maybe? */
+            /* animation: sway 3s ease-in-out infinite; */
+        }
+        /* Optional sway animation */
+        /* @keyframes sway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        } */
+
+        .answer-display {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em; /* Large answer text */
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0; /* Start hidden */
+            transform: scale(0.9); /* Start slightly small */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+         .answer-display.visible {
+            opacity: 1;
+            transform: scale(1);
+         }
+
+        .ask-button {
+            background: linear-gradient(to right, #FFD700, #FFA500); /* Gold to Orange gradient */
+            color: #4B0082; /* Indigo text */
+            padding: 15px 30px;
+            border-radius: 30px; /* Pill shape */
+            font-size: 1.2em;
+            font-weight: bold; /* Font already bold, but ensure */
+            transition: all 0.3s ease;
+            border: 3px solid #FFEC8B; /* Light golden border */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            margin-top: 25px;
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+        .ask-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .ask-button:active {
+            transform: translateY(0px) scale(1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="conch-container">
+
+        <header class="mb-4">
+            <h1 class="text-4xl font-bold mb-2">The Magic Conch Shell</h1>
+            <p class="text-sm opacity-80">Ask it anything... All hail the Magic Conch!</p>
+        </header>
+
+        <div class="conch-emoji" aria-hidden="true">🐚</div>
+
+        <button id="askButton" class="ask-button">Ask the Conch!</button>
+
+        <div id="answerDisplay" class="answer-display">
+            </div>
+
+        <footer class="mt-6 text-center text-xs opacity-70">
+            <p>&copy; Bikini Bottom</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const askButton = document.getElementById('askButton');
+        const answerDisplay = document.getElementById('answerDisplay');
+
+        // Classic Magic Conch answers
+        const answers = [
+            { text: "Maybe someday.", probability: 0.10 }, // 10%
+            { text: "Nothing.", probability: 0.10 },       // 10%
+            { text: "Neither.", probability: 0.10 },       // 10%
+            { text: "I don't think so.", probability: 0.15 }, // 15%
+            { text: "Try asking again.", probability: 0.10 }, // 10% - Added for variety
+            { text: "Yes.", probability: 0.05 },           // 5%
+            { text: "No.", probability: 0.40 }             // 40%
+        ];
+
+        askButton.addEventListener('click', getAnswer);
+
+        function getAnswer() {
+            // Hide previous answer immediately
+            answerDisplay.classList.remove('visible');
+            answerDisplay.textContent = ''; // Clear text while hidden
+
+            // Generate a random number between 0 and 1
+            const random = Math.random();
+            let cumulativeProbability = 0;
+            let selectedAnswer = "No."; // Default to the most common
+
+            // Determine the answer based on probability
+            for (const answer of answers) {
+                cumulativeProbability += answer.probability;
+                if (random < cumulativeProbability) {
+                    selectedAnswer = answer.text;
+                    break;
+                }
+            }
+
+            // Display the new answer after a short delay for effect
+            setTimeout(() => {
+                answerDisplay.textContent = selectedAnswer;
+                answerDisplay.classList.add('visible');
+            }, 150); // Short delay before showing
+        }
+
+    </script>
+</body>
+</html>
